@@ -1,0 +1,661 @@
+---
+title: "UChicago Men's Basketball Team"
+subtitle: 'Foreign Tour Practices'
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+
+if (requireNamespace("thematic")) 
+  thematic::thematic_rmd(font = "auto")
+
+options(dplyr.summarise.inform = FALSE)
+options(knitr.duplicate.label = "allow")
+
+knitr::opts_chunk$set(message = FALSE, 
+                      comment = NA, 
+                      warning=FALSE,
+                      fig.showtext = TRUE)
+
+```
+
+```{r, include=FALSE}
+
+library(tidyverse)
+library(ggplot2)
+library(gsheet)
+library(ggrepel)
+library(ggnewscale)
+library(ggpubr)
+library(png)
+library(gt)
+library(webshot)
+library(showtext)
+library(gridExtra)
+library(grid)
+library(kableExtra)
+rm(list=ls())
+
+setwd("~/Documents/Portfolio/UC MBB")
+
+raw_shots <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1w0Aq8FsDzdTbSLhpm2HvSffiIRuZEM8zBTmIpNG7Kxs/edit?usp=sharing") %>%
+  mutate(Region = case_when(
+    Region == 'P' ~ "Paint",
+    Region == 'LC' ~ "Left Corner",
+    Region == 'RC' ~ "Right Corner",
+    Region == 'LW' ~ "Left Wing",
+    Region == 'RW' ~ "Right Wing",
+    Region == 'T' ~ "Top",
+    Region == 'TK' ~ "Top of Key",
+    Region == 'RE' ~ "Right Elbow",
+    Region == 'LE' ~ "Left Elbow",
+    Region == 'RB' ~ "Right Baseline",
+    Region == 'LB' ~ "Left Baseline"
+  ),
+  Range = case_when(
+    (Region == 'Left Corner') | 
+      (Region == 'Left Wing') | 
+      (Region == 'Top') | 
+      (Region == 'Right Wing') | 
+      (Region == 'Right Corner') ~ "3",
+    Region == 'Paint' ~ "Paint",
+    TRUE ~ "2"
+  ),
+  `Shot Type` = case_when(
+    `Shot Type` == 'S' ~ "Catch & Shoot (Set)",
+    `Shot Type` == 'M' ~ "Catch & Shoot (Moving)",
+    `Shot Type` == 'L' ~ "Layup",
+    `Shot Type` == 'F' ~ "Floater",
+    `Shot Type` == 'H' ~ "Hook Shot",
+    `Shot Type` == 'B' ~ "Stepback",
+    `Shot Type` == 'P' ~ "Pull-Up"
+  ))
+
+players <- levels( factor(raw_shots$Player) )
+
+court <- read_csv(file="court.csv") %>%
+  select(X, Y, Region) %>%
+  filter(Region != 'Out of Bounds')
+region_labels <- read_csv(file="region_labels.csv") %>%
+  select(Region, X, Y)
+
+player_region <- function(df) {
+  df %>%
+    group_by(Player, Region) %>%
+    summarise(FGM = sum(Outcome),
+              FGA = n()) %>%
+    mutate(`FG%` = 100 * round(FGM / FGA, 3),
+           Splits = paste(paste(as.character(FGM), 
+                                as.character(FGA), 
+                                sep="/"),
+                          paste(as.character(100*round(FGM/FGA, 3)),
+                                "%",
+                                sep=""), 
+                          sep="\n")) %>%
+    ungroup()
+}
+player_type <- function(df) {
+  df %>%
+    na.omit() %>%
+    group_by(Player, `Shot Type`) %>%
+    summarise(FGM = sum(Outcome),
+              FGA = n()) %>%
+    mutate(`FG%` = 100 * round(FGM / FGA, 3),
+           Splits = paste(paste(as.character(FGM), 
+                                as.character(FGA), 
+                                sep="/"),
+                          paste(as.character(100*round(FGM/FGA, 3)),
+                                "%",
+                                sep=""), 
+                          sep="\n")) %>%
+    ungroup()
+}
+team_region <- function(df) {
+  df %>%
+    group_by(Region) %>%
+    summarise(FGM = sum(Outcome),
+              FGA = n()) %>%
+    mutate(Player = "Total",
+           `FG%` = 100 * round(FGM / FGA, 3),
+           Splits = paste(paste(as.character(FGM), 
+                                as.character(FGA), 
+                                sep="/"), 
+                          paste(as.character(100*round(FGM/FGA, 3)),
+                                "%",
+                                sep=""), 
+                          sep="\n")) %>%
+    ungroup()
+}
+team_type <- function(df) {
+  df %>%
+    na.omit() %>%
+    group_by(`Shot Type`) %>%
+    summarise(FGM = sum(Outcome),
+              FGA = n()) %>%
+    mutate(Player = "Total",
+           `FG%` = 100 * round(FGM / FGA, 3),
+           Splits = paste(paste(as.character(FGM), 
+                                as.character(FGA), 
+                                sep="/"), 
+                          paste(as.character(100*round(FGM/FGA, 3)),
+                                "%",
+                                sep=""), 
+                          sep="\n")) %>%
+    ungroup()
+}
+
+shot_map <- function(player, shot_type, title, subtitle) {
+  df <- raw_shots
+  if (shot_type != "All") {
+    df <- filter(raw_shots, `Shot Type` == shot_type)
+  }
+  
+  if (player == 'All') {
+    df <- team_region(df)
+  } else {
+    df <- player_region( filter(df, Player == player) )
+  }
+  
+  shots <- merge(x=court,
+                 y=select(df, Player, Region, FGA, `FG%`, Splits),
+                 by="Region",
+                 all.x=TRUE)
+  labels <- merge(x=region_labels,
+                  y=df,
+                  by="Region",
+                  all.x=TRUE)
+  
+  if (player != 'All') {
+    title <- player
+  }
+  if (shot_type != 'All') {
+    title <- paste(title, shot_type, sep=" - ")
+  }
+  
+  shots <- 
+    mutate(shots, 
+           Shade = case_when(
+             `FG%` <= 20 ~ "#e67c73",
+             `FG%` <= 40 ~ "#ddb5aa",
+             `FG%` <= 60 ~ "#d5eee2",
+             `FG%` <= 80 ~ "#97d5b6",
+             `FG%` <= 100 ~ "#58bb8a"
+           ))
+  
+  plot <- 
+    ggplot(data=shots, aes(x=X, 
+                           y=Y, 
+                           color=Shade, 
+                           alpha=FGA)) + 
+    geom_point(shape=15,
+               size=2,
+               show.legend=FALSE) +
+    scale_colour_identity(guide='legend') +
+    annotation_raster(readPNG("court.png"), 
+                      ymin = 0,
+                      ymax= 47,
+                      xmin = 0,
+                      xmax = 50) +
+    new_scale('alpha') +
+    geom_label(
+      data=labels, 
+      aes(x=X, y=Y, label=Splits),
+      size=3,
+      color='black',
+      fill = alpha(c("white"), 0.5)) +
+    xlim(0, 50) +
+    ylim(0, 47) +
+    labs(x="", 
+         y="") +
+    theme_linedraw() +
+    theme(
+      axis.text.x=element_blank(),
+      axis.ticks.x=element_blank(),
+      axis.text.y=element_blank(),
+      axis.ticks.y=element_blank(),
+      panel.grid.major = element_blank(), 
+      panel.grid.minor = element_blank(),
+      plot.title = element_text(face="bold",
+                                size=10)
+    )
+  
+  return(plot)
+}
+region_bar <- function(player, percentage=FALSE, title, subtitle) {
+  if (player != 'All') {
+    df <- player_region( filter(raw_shots, Player == player) )
+  } else {
+    df <- team_region(raw_shots) %>% 
+      group_by(Region) %>% 
+      summarize(FGM = sum(FGM), 
+                FGA = sum(FGA)) %>%
+      mutate(`FG%` = 100 * round(FGM / FGA, 3)) %>%
+      ungroup()
+  }
+  
+  if (player != 'All') {
+    title <- player
+  }
+  
+  y_label <- 'Field Goal Attempts (FGA)'
+  if (percentage) {
+    df <- mutate(df, FGA = `FG%`)
+    y_label <- 'Field Goal Percentage (FG%)'
+  }
+  
+  region_plot <-
+    ggplot(data=df) + 
+    geom_bar(aes(x=fct_rev(fct_reorder(Region, FGA)), 
+                 y=FGA,
+                 fill=FGA),
+             color='black',
+             stat="identity",
+             show.legend=FALSE) +
+    scale_fill_gradient(low="#c8a4a2",
+                        high="#7b0001") +
+    labs(x='',
+         y=y_label,
+         title="Region") +
+    coord_flip() +
+    theme_linedraw() +
+    theme(
+      plot.margin = margin(0.25, 0.25, 0.25, 0.25, "cm"),
+      plot.background = element_rect(
+        fill = "grey90",
+        color = "black"
+      ),
+      legend.box.background = element_rect(size=0.75),
+      axis.title.x = element_text(size=10),
+      axis.title.y = element_text(size=10),
+      axis.text.x = element_text(size=10),
+      axis.text.y = element_text(size=10),
+      plot.title = element_text(face="bold",
+                                size=10)
+    )
+  
+  return(region_plot)
+}
+type_bar <- function(player, percentage=FALSE, title, subtitle) {
+  if (player != 'All') {
+    df <- player_type( filter(raw_shots, Player == player) )
+  } else {
+    df <- team_type(raw_shots) %>% 
+      group_by(`Shot Type`) %>% 
+      summarize(FGM = sum(FGM), 
+                FGA = sum(FGA)) %>%
+      mutate(`FG%` = 100 * round(FGM / FGA, 3)) %>%
+      ungroup()
+  }
+  
+  if (player != 'All') {
+    title <- player
+  }
+  
+  y_label <- 'Field Goal Attempts (FGA)'
+  if (percentage) {
+    df <- mutate(df, FGA = `FG%`)
+    y_label <- 'Field Goal Percentage (FG%)'
+  }
+  
+  type_plot <-
+    ggplot(data=df) + 
+    geom_bar(aes(x=fct_rev(fct_reorder(`Shot Type`, FGA)), 
+                 y=FGA,
+                 fill=FGA),
+             color='black',
+             stat="identity",
+             show.legend=FALSE) +
+    coord_flip() +
+    scale_fill_gradient(low="#c8a4a2",
+                        high="#7b0001") +
+    labs(x='',
+         y=y_label,
+         title="Shot Type") +
+    theme_linedraw() +
+    theme(
+      plot.margin = margin(0.25, 0.25, 0.25, 0.25, "cm"),
+      plot.background = element_rect(
+        fill = "grey90",
+        color = "black"
+      ),
+      legend.box.background = element_rect(size=0.75),
+      axis.title.x = element_text(size=10),
+      axis.title.y = element_text(size=10),
+      axis.text.x = element_text(size=10),
+      axis.text.y = element_text(size=10),
+      plot.title = element_text(face="bold",
+                                size=10)
+    )
+  
+  return(type_plot)
+}
+
+shot_map_table <- function(player, shot_type, title, subtitle) {
+  df <- raw_shots
+  if (shot_type != "All") {
+    df <- filter(raw_shots, `Shot Type` == shot_type)
+  }
+  
+  if (player == 'All') {
+    df <- team_region(df)
+  } else {
+    df <- player_region( filter(df, Player == player) )
+  }
+  
+  if (player != 'All') {
+    title <- player
+  }
+  if (shot_type != 'All') {
+    title <- paste(title, shot_type, sep=" - ")
+  }
+  
+  table <- df %>%
+    mutate(Splits = paste(as.character(FGM), 
+                        as.character(FGA), 
+                        sep="/")) %>%
+    select(Region, Splits, `FG%`) %>%
+    arrange(desc(`FG%`))
+  
+  return(table)
+}
+region_shot_table <- function(player, shot_type, title, subtitle) {
+  df <- na.omit(raw_shots)
+  
+  if (player != 'All') {
+    df <- filter(df, Player == player)
+  }
+  if (shot_type != 'All') {
+    df <- filter(df, `Shot Type` == shot_type)
+  }
+  
+  player_shots <- 
+    df %>%
+    group_by(Region, `Shot Type`) %>%
+    summarise(FGM = sum(Outcome),
+              FGA = n()) %>%
+    mutate(`FG%` = 100 * round(FGM / FGA, 3),
+           Splits = paste(paste(as.character(FGM), 
+                                as.character(FGA), 
+                                sep="/"))) %>%
+    arrange(Region, desc(`FG%`)) %>%
+    ungroup()
+  
+  if (player != 'All') {
+    title <- player
+  }
+  
+  return(select(player_shots, Region, `Shot Type`, Splits, `FG%`))
+}
+shot_table <- function(player, shot_type, title, subtitle) {
+  df <- na.omit(raw_shots)
+  
+  if (player != 'All') {
+    df <- filter(df, Player == player)
+  }
+  if (shot_type != 'All') {
+    df <- filter(df, `Shot Type` == shot_type)
+  }
+  
+  player_shots <- 
+    df %>%
+    group_by(`Shot Type`) %>%
+    summarise(FGM = sum(Outcome),
+              FGA = n()) %>%
+    mutate(`FG%` = 100 * round(FGM / FGA, 3),
+           Splits = paste(paste(as.character(FGM), 
+                                as.character(FGA), 
+                                sep="/"))) %>%
+    arrange(desc(`FG%`)) %>%
+    ungroup()
+  
+  if (player != 'All') {
+    title <- player
+  }
+  
+  return(select(player_shots, `Shot Type`, Splits, `FG%`))
+}
+region_table <- function(region, shot_type, subtitle) {
+  if (shot_type != 'All') {
+    df <- filter(raw_shots, `Shot Type` == shot_type)
+  } else {
+    df <- raw_shots
+  }
+  
+  df <- df %>%
+    group_by(Region, Player) %>%
+    summarize(FGM = sum(Outcome),
+              FGA = n(),
+              `FG%` = 100 * round(FGM / FGA, 3)) %>%
+    ungroup() %>%
+    arrange(Region, desc(`FG%`))
+  
+  if (region != 'All') {
+    df <- df %>%
+      filter(Region == region) %>%
+      select(Player, FGM, FGA, `FG%`)
+    title <- region
+  } else {
+    df <- select(df, Region, Player, FGM, FGA, `FG%`)
+    title <- "All Regions"
+  }
+  
+  return(df)
+}
+range_table <- function(shot_type, range, subtitle) {
+  if (shot_type != 'All') {
+    df <- filter(raw_shots, `Shot Type` == shot_type)
+    title2 <- paste(": ", shot_type, sep="")
+  } else {
+    df <- raw_shots
+    title2 <- ""
+  }
+  
+  if (range != 'All') {
+    df <- filter(df, Range == range)
+    
+    if (range != 'Paint') {
+      title1 <- paste(range, "-Point Range", sep="")
+    } else {
+      title1 <- "Paint"
+    }
+  } else {
+    title1 <- "All Shots"
+  }
+  
+  table <- df %>%
+    group_by(Player) %>%
+    summarize(FGM = sum(Outcome),
+              FGA = n(),
+              `FG%` = 100 * round(FGM / FGA, 3)) %>%
+    ungroup() %>%
+    arrange(desc(`FG%`)) %>%
+    select(Player, FGM, FGA, `FG%`)
+
+  return(table)
+}
+player_range_table <- function(player, shot_type, range, subtitle) {
+  if (shot_type != 'All') {
+    df <- filter(raw_shots, `Shot Type` == shot_type)
+    title2 <- paste(": ", shot_type, sep="")
+  } else {
+    df <- raw_shots
+    title2 <- ""
+  }
+  
+  table <- 
+    df %>%
+    filter(Player == player) %>%
+    group_by(Range) %>%
+    summarize(FGM = sum(Outcome),
+              FGA = n(),
+              `FG%` = 100 * round(FGM / FGA, 3)) %>%
+    ungroup() %>%
+    arrange(desc(`FG%`)) %>%
+    mutate(Range = case_when(
+      Range == "2" ~ "2-Point Range",
+      Range == "3" ~ "3-Point Range",
+      TRUE ~ "Paint"
+    ))
+  
+  return(table)
+}
+
+```
+
+```{r, include=FALSE}
+
+title <- 'All Players'
+subtitle <- 'Foreign Tour Practices'
+region <- 'All'
+shot_type <- 'All'
+range <- 'All'
+
+player_output1 <- function(player) {
+  plot(shot_map(player, shot_type, title, subtitle))
+  
+  kbl(list(shot_map_table(player, shot_type, title, subtitle),
+           region_shot_table(player, shot_type, title, subtitle))) %>%
+    kable_styling(latex_options="HOLD_position")
+}
+
+player_output2 <- function(player) {
+  plot(region_bar(player, percentage=FALSE, title, subtitle))
+  plot(type_bar(player, percentage=FALSE, title, subtitle))
+  
+  kbl(list(shot_table(player, shot_type, title, subtitle),
+           player_range_table(player, shot_type, range, subtitle))) %>%
+    kable_styling(latex_options="HOLD_position")
+}
+
+```
+
+# Alec Bryan
+```{r, echo=FALSE, fig.align='center', fig.height=4, fig.width=6.4}
+
+player_output1("Alec Bryan")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Alec Bryan")
+
+```
+
+# Arrish Bhandal
+```{r, echo=FALSE, fig.align='center', fig.height=3, fig.width=4.8}
+
+player_output1("Arrish Bhandal")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Arrish Bhandal")
+
+```
+
+# Dashiel Walker
+```{r, echo=FALSE, fig.align='center', fig.height=3, fig.width=4.8}
+
+player_output1("Dashiel Walker")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Dashiel Walker")
+
+```
+
+# Elliot Paschal
+```{r, echo=FALSE, fig.align='center', fig.height=3, fig.width=4.8}
+
+player_output1("Elliot Paschal")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Elliot Paschal")
+
+```
+
+# Ezra Moos
+```{r, echo=FALSE, fig.align='center', fig.height=3, fig.width=4.8}
+
+player_output1("Ezra Moos")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Ezra Moos")
+
+```
+
+# Josh Preston
+```{r, echo=FALSE, fig.align='center', fig.height=3, fig.width=4.8}
+
+player_output1("Josh Preston")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Josh Preston")
+
+```
+
+# Kerem Ozturk
+```{r, echo=FALSE, fig.align='center', fig.height=3, fig.width=4.8}
+
+player_output1("Kerem Ozturk")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Kerem Ozturk")
+
+```
+
+# Leonardo Edo
+```{r, echo=FALSE, fig.align='center', fig.height=3, fig.width=4.8}
+
+player_output1("Leonardo Edo")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Leonardo Edo")
+
+```
+
+# Skyler Twyman
+```{r, echo=FALSE, fig.align='center', fig.height=3, fig.width=4.8}
+
+player_output1("Skyler Twyman")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Skyler Twyman")
+
+```
+
+# Thomas Kurowski
+```{r, echo=FALSE, fig.align='center', fig.height=3, fig.width=4.8}
+
+player_output1("Thomas Kurowski")
+
+```
+
+```{r, echo=FALSE, fig.show="hold", out.width="50%"}
+
+player_output2("Thomas Kurowski")
+
+```
