@@ -1,11 +1,11 @@
-setwd("~/Documents/Portfolio/UC MBB")
-
 library(tidyverse)
 library(ggplot2)
 library(gt)
 library(gsheet)
 library(janitor)
 rm(list = ls())
+
+setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
 
 scout <- 
   read_csv("scout.csv") %>%

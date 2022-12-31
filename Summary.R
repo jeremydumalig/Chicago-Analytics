@@ -8,8 +8,8 @@ mbb_url <- "https://docs.google.com/spreadsheets/d/1BcIP7CIYDTNnedcRG3U3HAIwluaJ
 wbb_url <- "https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLohmxQK6PyrbNbOQbM6ux4LxXqWenM/edit#gid=2032963821"
 
 mens_team <- FALSE
-date <- "12/18/22"
-opponent <- "Lutheran"
+date <- "12/30/22"
+opponent <- "Knox"
 
 if (mens_team) {
   url <- mbb_url

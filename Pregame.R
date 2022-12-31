@@ -4,7 +4,7 @@ library(gsheet)
 library(gt)
 rm(list = ls())
 
-setwd("~/Documents/Portfolio/UC MBB")
+setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
 
 traditional_averages <- read_csv(file = "season_averages23.csv")
 advanced_averages <- read_csv(file = "advanced_averages23.csv")

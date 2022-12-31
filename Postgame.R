@@ -4,7 +4,7 @@ library(gsheet)
 library(gt)
 rm(list = ls())
 
-setwd("~/Documents/Portfolio/UC MBB")
+setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
 
 raw_head_to_head <- read_csv(file = "head_to_head.csv")
 traditional <- read_csv(file = "traditional_comparisons.csv")

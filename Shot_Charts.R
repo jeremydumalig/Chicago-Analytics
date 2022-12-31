@@ -13,18 +13,18 @@ rm(list=ls())
 
 options(dplyr.summarise.inform = FALSE)
 
-setwd("~/Documents/Portfolio/UC MBB")
+setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
 
-men <- TRUE
-game_status <- FALSE
+men <- FALSE
+game_status <- TRUE
 
 mbb_url <- "https://docs.google.com/spreadsheets/d/1BcIP7CIYDTNnedcRG3U3HAIwluaJtz8LCAKfArlEh98/edit#gid=2032963821"
 wbb_url <- "https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLohmxQK6PyrbNbOQbM6ux4LxXqWenM/edit#gid=2032963821"
 
-mbb_game_dates <- c("11/10/22", "11/12/22", "11/13/22", "11/18/22", "11/19/22", "11/26/22", "11/30/22", "12/11/22", "12/14/22", "12/20/22")
-wbb_game_dates <- c("11/12/22", "11/13/22", "11/18/22", "11/19/22", "11/22/22", "11/27/22", "11/30/22", "12/3/22", "12/14/22", "12/18/22")
+mbb_game_dates <- c("11/10/22", "11/12/22", "11/13/22", "11/18/22", "11/19/22", "11/26/22", "11/30/22", "12/11/22", "12/14/22", "12/20/22", "12/31/22")
+wbb_game_dates <- c("11/12/22", "11/13/22", "11/18/22", "11/19/22", "11/22/22", "11/27/22", "11/30/22", "12/3/22", "12/14/22", "12/18/22", "12/30/22")
 players <- c('Alec Bryan', 'Kerem Ozturk', 'Leonardo Edo', 'Skyler Twyman', 'Ezra Moos', 'Thomas Kurowski', 'Dashiel Walker', 'Elliot Paschal', 'Arrish Bhandal', 'Josh Preston', 'Jackson Piotrowski', 'Bryce Hopkins', 'Tola Olorode', 'Joe Berry', 'Ben Chasin', 'Blake Hawthorne', 'Eamonn Kenah', 'Alex Battist', 'Ellie Gross', 'Kate Gross', 'Grace Hynes', 'Sophia North', 'Ashley Gao', 'Isabelle Herrera', 'Bella Alfaro', 'Lindsey Carter', 'Caroline Workman', 'Mallory Brodnik', 'Peyton Van Soest', 'Alexis Clark', 'Amber Williams', 'Marissa Powe')
-teams <- c('Lake Forest', 'Albion', 'North Central', "Mount St. Joe's", 'Benedictine', 'Colorado College', 'North Park', 'Colby', 'Carroll', 'Wheaton', 'Carthage', 'Eureka', 'Kalamazoo', 'Edgewood', 'Whitewater', 'Illinois Tech', 'Lutheran', 'Wesleyan')
+teams <- c('Lake Forest', 'Albion', 'North Central', "Mount St. Joe's", 'Benedictine', 'Colorado College', 'North Park', 'Colby', 'Carroll', 'Wheaton', 'Carthage', 'Eureka', 'Kalamazoo', 'Edgewood', 'Whitewater', 'Illinois Tech', 'Lutheran', 'Wesleyan', 'Knox', 'Babson')
 
 if (men) {
   team_url <- mbb_url
@@ -538,18 +538,17 @@ player_range_table <- function(player, shot_type, range, subtitle) {
   return(table)
 }
 
-title <- 'UChicago'
-# subtitle <- 'UChicago at Lutheran | December 18, 2022'
-subtitle <- "University of Chicago Men's Basketball | 2022 Preseason Practices"
+title <- 'Knox'
+subtitle <- 'Knox at UChicago | December 30, 2022'
 player <- 'All'
 region <- 'All'
 shot_type <- 'All'
 range <- 'All'
 
-# raw_shots <- filter(raw_shots, Date == "12/18/22", Player != "Lutheran")
+raw_shots <- filter(raw_shots, Date == "12/30/22", Player == "Knox")
 shot_map(player, shot_type, title, subtitle)
 
-for (player in players) {
+# for (player in players) {
   shot_map(player, shot_type, title, subtitle)
   ggsave(paste(strsplit(strsplit(player, " ")[[1]][1], "")[[1]][1],
                strsplit(player, " ")[[1]][2], 
