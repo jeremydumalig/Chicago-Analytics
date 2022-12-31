@@ -17,9 +17,11 @@ logos <- read_csv("uaa_logos.csv")
 if (women) {
   logs <- wbb_logs
   games <- wbb_games
+  subtitle <- "UAA Women's Basketball | Through December 30, 2022"
 } else {
   logs <- mbb_logs
   games <- mbb_games
+  subtitle <- "UAA Men's Basketball | Through December 30, 2022"
 }
 
 logs <-
@@ -46,7 +48,7 @@ conference %>%
              size=0.1,
              stat='identity') +
   labs(title="Who are the best and worst rebounding teams?",
-       subtitle="UAA Preseason | Through December 30, 2022",
+       subtitle=subtitle,
        x="Offensive Rebound Rate (ORB%)",
        y="Defensive Rebound Rate (DRB%)") +
   theme_linedraw() +
