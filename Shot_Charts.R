@@ -15,7 +15,7 @@ options(dplyr.summarise.inform = FALSE)
 
 setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
 
-men <- FALSE
+men <- TRUE
 game_status <- TRUE
 
 mbb_url <- "https://docs.google.com/spreadsheets/d/1BcIP7CIYDTNnedcRG3U3HAIwluaJtz8LCAKfArlEh98/edit#gid=2032963821"
@@ -538,14 +538,14 @@ player_range_table <- function(player, shot_type, range, subtitle) {
   return(table)
 }
 
-title <- 'Knox'
-subtitle <- 'Knox at UChicago | December 30, 2022'
+title <- 'UChicago'
+subtitle <- 'Babson at UChicago | December 31, 2022'
 player <- 'All'
 region <- 'All'
 shot_type <- 'All'
 range <- 'All'
 
-raw_shots <- filter(raw_shots, Date == "12/30/22", Player == "Knox")
+raw_shots <- filter(raw_shots, Date == "12/31/22", Player != "Babson")
 shot_map(player, shot_type, title, subtitle)
 
 # for (player in players) {

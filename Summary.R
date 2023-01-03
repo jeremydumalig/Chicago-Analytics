@@ -4,6 +4,8 @@ library(gsheet)
 library(janitor)
 rm(list = ls())
 
+setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
+
 mbb_url <- "https://docs.google.com/spreadsheets/d/1BcIP7CIYDTNnedcRG3U3HAIwluaJtz8LCAKfArlEh98/edit#gid=2032963821"
 wbb_url <- "https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLohmxQK6PyrbNbOQbM6ux4LxXqWenM/edit#gid=2032963821"
 
@@ -125,6 +127,23 @@ raw_turnovers %>%
                locations = cells_column_labels(columns = `Perimeter/Strip`)) %>%
   tab_footnote(footnote = "Includes illegal screens, three-in-the-key, away-from-the-ball offensive fouls",
                locations = cells_column_labels(columns = `Off-Ball`))
+
+read_csv("preseason_tracking3.csv") %>%
+  mutate(`Shot Type` = case_when(
+    `Shot Type` == "DHO" ~ "Dribble Hand-Off",
+    `Shot Type` == "Post Kick" ~ "Post Kick-Out",
+    `Shot Type` == "OREB Kick" ~ "Offensive Rebound",
+    `Shot Type` == "Perimeter" ~ "Perimeter Pass",
+    `Shot Type` == "Drive and Kick" ~ "Drive + Kick",
+    `Shot Type` == "Pick and Pop" ~ "Pick + Pop",
+    TRUE ~ `Shot Type`)) %>%
+  gt() %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_title(groups = "title")) %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_body(columns = `Shot Type`)) %>%
+  tab_header(title = md("3-Point Attempts by Type"),
+             subtitle = "2022 Preseason | UChicago Men's Basketball Team")
 
 raw_shots %>%
   filter(Player %in% teams) %>%

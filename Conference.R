@@ -4,15 +4,13 @@ library(ggimage)
 library(gsheet)
 rm(list = ls())
 
-setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
-
 women <- TRUE
 
 mbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/mbb_uaa_scout.csv")
 wbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/wbb_uaa_scout.csv")
 mbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1BcIP7CIYDTNnedcRG3U3HAIwluaJtz8LCAKfArlEh98/edit#gid=136251738")
 wbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLohmxQK6PyrbNbOQbM6ux4LxXqWenM/edit#gid=1703250336")
-logos <- read_csv("uaa_logos.csv")
+logos <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uaa_logos.csv")
 
 if (women) {
   logs <- wbb_logs
@@ -49,8 +47,8 @@ conference %>%
              stat='identity') +
   labs(title="Who are the best and worst rebounding teams?",
        subtitle=subtitle,
-       x="Offensive Rebound Rate (ORB%)",
-       y="Defensive Rebound Rate (DRB%)") +
+       x="Defensive Rebound Rate (DRB%)",
+       y="Offensive Rebound Rate (ORB%)") +
   theme_linedraw() +
   theme(
     plot.margin = margin(1, 0.5, 0.5, 0.5, "cm"),

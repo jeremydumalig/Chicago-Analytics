@@ -10,7 +10,7 @@ raw_head_to_head <- read_csv(file = "head_to_head.csv")
 traditional <- read_csv(file = "traditional_comparisons.csv")
 advanced <- read_csv(file = "advanced_comparison.csv")
 
-info <- c('Lutheran', 'Away', 'December 18, 2022')
+info <- c('Babson', 'Home', 'December 31, 2022')
 
 ####################
 
