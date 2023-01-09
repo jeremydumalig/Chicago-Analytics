@@ -104,7 +104,7 @@ pregame_advanced <-
 
 ####################
 
-info <- c('Knox', 'Home', '12/30/22')
+info <- c('WashU', 'Away', '1/7/23')
 
 pregame_traditional(traditional_averages, 'Traditional', info[1], info[2], info[3])
 pregame_advanced(advanced_averages, info[1], info[2], info[3])

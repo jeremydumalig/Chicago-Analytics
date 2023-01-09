@@ -31,3 +31,21 @@ scout %>%
             locations = cells_body(columns = Opponent)) %>%
   tab_header(title = md("Knox Advanced Statistics"),
              subtitle = "UChicago Women's Basketball Team | 12/30/22 vs Knox")
+
+read_csv("grudzinski.csv") %>%
+  group_by(`Shot Type`) %>%
+  summarize(FGM = sum(Outcome),
+            FGA = n(),
+            `FG%` = 100 * round(FGM / FGA, 3)) %>%
+  ungroup() %>%
+  mutate(Frequency = 100 * round(FGA / sum(FGA), 3),
+         Splits = paste(as.character(FGM), "/", as.character(FGA), sep="")) %>%
+  arrange(desc(FGA)) %>%
+  select(`Shot Type`, Frequency, Splits, `FG%`) %>%
+  gt() %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_title(groups = "title")) %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_body(columns = `Shot Type`)) %>%
+  tab_header(title = md("Will Grudzinski"),
+             subtitle = "Washington University | Last 5 Games")

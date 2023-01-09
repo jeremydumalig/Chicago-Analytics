@@ -90,11 +90,11 @@ raw_posts %>%
 
 
 mbb_game_dates <- c("11/10/22", "11/12/22", "11/13/22", "11/18/22", "11/19/22", "11/26/22", "11/30/22")
-players <- c('Alec Bryan', 'Kerem Ozturk', 'Leonardo Edo', 'Skyler Twyman', 'Ezra Moos', 'Thomas Kurowski', 'Dashiel Walker', 'Elliot Paschal', 'Arrish Bhandal', 'Josh Preston', 'Jackson Piotrowski', 'Bryce Hopkins', 'Tola Olorode', 'Joe Berry', 'Ben Chasin', 'Blake Hawthorne', 'Eamonn Kenah', 'Alex Battist')
+wbb_game_dates <- c("11/12/22", "11/13/22", "11/18/22", "11/19/22", "11/22/22", "11/27/22", "11/30/22", "12/3/22", "12/14/22", "12/18/22", "12/30/22")
+players <- c('Alec Bryan', 'Kerem Ozturk', 'Leonardo Edo', 'Skyler Twyman', 'Ezra Moos', 'Thomas Kurowski', 'Dashiel Walker', 'Elliot Paschal', 'Arrish Bhandal', 'Josh Preston', 'Jackson Piotrowski', 'Bryce Hopkins', 'Tola Olorode', 'Joe Berry', 'Ben Chasin', 'Blake Hawthorne', 'Eamonn Kenah', 'Alex Battist', 'Ellie Gross', 'Kate Gross', 'Grace Hynes', 'Sophia North', 'Ashley Gao', 'Isabelle Herrera', 'Bella Alfaro', 'Lindsey Carter', 'Caroline Workman', 'Mallory Brodnik', 'Peyton Van Soest', 'Alexis Clark', 'Amber Williams', 'Marissa Powe')
 
 raw_turnovers %>%
-  filter(!Date %in% mbb_game_dates,
-         Player %in% players) %>%
+  filter(Player %in% players) %>%
   mutate(`Post Entry` = (`Turnover Type` == "Post Entry"),
          `Perimeter/Strip` = (`Turnover Type` == "Perimeter/Strip"),
          `Drive` = (`Turnover Type` == "Drive"),
