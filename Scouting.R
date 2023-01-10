@@ -49,3 +49,43 @@ read_csv("grudzinski.csv") %>%
             locations = cells_body(columns = `Shot Type`)) %>%
   tab_header(title = md("Will Grudzinski"),
              subtitle = "Washington University | Last 5 Games")
+
+read_csv("nyu_drives.csv") %>%
+  group_by(`Play Type`) %>%
+  summarize(Count = n(),
+            Turnover = sum(Outcome == "T"),
+            Foul = sum(Outcome == "F"),
+            FGM = sum(Outcome == "1"),
+            FGA = sum(Outcome == "0") + sum(Outcome == "1"),
+            Pass = sum(Outcome == "P")) %>%
+  ungroup() %>%
+  arrange(desc(Count)) %>%
+  adorn_totals("row") %>%
+  mutate(`FG%` = 100 * round(FGM / FGA, 3)) %>%
+  gt() %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_title(groups = "title")) %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_body(columns = `Play Type`)) %>%
+  tab_header(title = md("Drive Outcomes"),
+             subtitle = "New York University | 3 Closest Games")
+
+read_csv("nyu_pnr.csv") %>%
+  group_by(`Play Type`) %>%
+  summarize(Count = n(),
+            Turnover = sum(Outcome == "T"),
+            Foul = sum(Outcome == "F"),
+            FGM = sum(Outcome == "1"),
+            FGA = sum(Outcome == "0") + sum(Outcome == "1"),
+            Pass = sum(Outcome == "P")) %>%
+  ungroup() %>%
+  arrange(desc(Count)) %>%
+  adorn_totals("row") %>%
+  mutate(`FG%` = 100 * round(FGM / FGA, 3)) %>%
+  gt() %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_title(groups = "title")) %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_body(columns = `Play Type`)) %>%
+  tab_header(title = md("Pick-and-Roll Outcomes"),
+             subtitle = "New York University | 3 Closest Games")
