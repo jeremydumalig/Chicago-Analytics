@@ -15,7 +15,7 @@ logos <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analy
 if (women) {
   logs <- wbb_logs
   games <- wbb_games
-  subtitle <- "UAA Women's Basketball | Through December 30, 2022"
+  subtitle <- "UAA Women's Basketball | Through January 7, 2023"
 } else {
   logs <- mbb_logs
   games <- mbb_games
