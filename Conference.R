@@ -12,7 +12,7 @@ mbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1BcIP7CIYDTNnedc
 wbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLohmxQK6PyrbNbOQbM6ux4LxXqWenM/edit#gid=1703250336")
 logos <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uaa_logos.csv")
 
-date <- "January 7, 2023"
+date <- "January 15, 2023"
 
 if (women) {
   logs <- wbb_logs
@@ -39,7 +39,8 @@ conference <-
   merge(logos, 
         by="Team")
 
-conference %>%
+rebounds <-
+  conference %>%
   ggplot(aes(x=`DRB%`,
              y=`ORB%`)) +
   geom_hline(yintercept=mean(conference$`ORB%`), linetype="dashed") +
@@ -64,7 +65,8 @@ conference %>%
     plot.subtitle = element_text(size=14),
     plot.caption = element_text(size=10))
 
-conference %>%
+turnovers <- 
+  conference %>%
   ggplot(aes(x=`TO%`,
              y=`OPP TO%`)) +
   geom_hline(yintercept=mean(conference$`TO%`), linetype="dashed") +
@@ -88,3 +90,6 @@ conference %>%
                               face="bold"),
     plot.subtitle = element_text(size=14),
     plot.caption = element_text(size=10))
+
+rebounds
+turnovers
