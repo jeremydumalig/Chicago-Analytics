@@ -4,7 +4,7 @@ library(ggimage)
 library(gsheet)
 rm(list = ls())
 
-women <- TRUE
+women <- FALSE
 
 mbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/mbb_uaa_scout.csv")
 wbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/wbb_uaa_scout.csv")
@@ -92,4 +92,4 @@ turnovers <-
     plot.caption = element_text(size=10))
 
 rebounds
-turnovers
+# turnovers
