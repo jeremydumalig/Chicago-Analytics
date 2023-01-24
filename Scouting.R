@@ -32,24 +32,6 @@ scout %>%
   tab_header(title = md("Knox Advanced Statistics"),
              subtitle = "UChicago Women's Basketball Team | 12/30/22 vs Knox")
 
-read_csv("grudzinski.csv") %>%
-  group_by(`Shot Type`) %>%
-  summarize(FGM = sum(Outcome),
-            FGA = n(),
-            `FG%` = 100 * round(FGM / FGA, 3)) %>%
-  ungroup() %>%
-  mutate(Frequency = 100 * round(FGA / sum(FGA), 3),
-         Splits = paste(as.character(FGM), "/", as.character(FGA), sep="")) %>%
-  arrange(desc(FGA)) %>%
-  select(`Shot Type`, Frequency, Splits, `FG%`) %>%
-  gt() %>%
-  tab_style(style = list(cell_text(weight = "bold")),
-            locations = cells_title(groups = "title")) %>%
-  tab_style(style = list(cell_text(weight = "bold")),
-            locations = cells_body(columns = `Shot Type`)) %>%
-  tab_header(title = md("Will Grudzinski"),
-             subtitle = "Washington University | Last 5 Games")
-
 read_csv("nyu_drives.csv") %>%
   group_by(`Play Type`) %>%
   summarize(Count = n(),
@@ -70,34 +52,44 @@ read_csv("nyu_drives.csv") %>%
   tab_header(title = md("Drive Outcomes"),
              subtitle = "New York University | 3 Closest Games")
 
-read_csv("catherine_or.csv") %>%
+read_csv("brandeis_rochester.csv") %>%
   group_by(`Play Type`) %>%
   summarize(FGM = sum(Outcome == "1"),
             FGA = n()) %>%
   ungroup() %>%
-  arrange(desc(`FGA`)) %>%
+  mutate(Frequency = 100 * round(FGA / sum(FGA), 3)) %>%
+  arrange(desc(FGA)) %>%
   adorn_totals("row") %>%
-  mutate(`FG%` = 100 * round(FGM / FGA, 3)) %>%
+  mutate(`FG%` = 100 * round(FGM / FGA, 3),
+         Splits = paste(as.character(FGM), "/", as.character(FGA), sep="")) %>%
+  select(`Play Type`, Frequency, Splits, `FG%`) %>%
   gt() %>%
   tab_style(style = list(cell_text(weight = "bold")),
             locations = cells_title(groups = "title")) %>%
   tab_style(style = list(cell_text(weight = "bold")),
             locations = cells_body(columns = `Play Type`)) %>%
-  tab_header(title = md("#22 Catherine Or: Field Goal Outcomes"),
-             subtitle = "Carnegie Mellon University | UAA Games (3 total)")
+  tab_header(title = md("Rochester: 2nd Half Field Goal Attempts"),
+             subtitle = "January 20, 2023 | Rochester 71, Brandeis 77")
 
-read_csv("anisha_chintala.csv") %>%
+read_csv("rochester_offense.csv") %>%
   group_by(`Play Type`) %>%
   summarize(FGM = sum(Outcome == "1"),
             FGA = n()) %>%
   ungroup() %>%
-  arrange(desc(`FGA`)) %>%
+  mutate(`Play Type` = case_when(`Play Type` == "DHO" ~ "Dribble Hand-Off",
+                                 TRUE ~ `Play Type`),
+         Frequency = 100 * round(FGA / sum(FGA), 3)) %>%
+  arrange(desc(FGA)) %>%
   adorn_totals("row") %>%
-  mutate(`FG%` = 100 * round(FGM / FGA, 3)) %>%
+  mutate(`FG%` = 100 * round(FGM / FGA, 3),
+         Frequency = case_when(`Play Type` == "Total" ~ 100,
+                               TRUE ~ Frequency),
+         Splits = paste(as.character(FGM), "/", as.character(FGA), sep="")) %>%
+  select(`Play Type`, Frequency, Splits, `FG%`) %>%
   gt() %>%
   tab_style(style = list(cell_text(weight = "bold")),
             locations = cells_title(groups = "title")) %>%
   tab_style(style = list(cell_text(weight = "bold")),
             locations = cells_body(columns = `Play Type`)) %>%
-  tab_header(title = md("#10 Anisha Chintala: Paint Shot Outcomes"),
-             subtitle = "Carnegie Mellon University | UAA Games (3 total)")
+  tab_header(title = md("Rochester: Field Goal Outcomes"),
+             subtitle = "University of Rochester | Last 2 UAA Games")
