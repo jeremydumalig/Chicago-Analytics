@@ -1,0 +1,633 @@
+,Time,Action,Team
+0,09:39,"CHINTALA,ANISHA missed layup",Opponent
+1,09:36,"CHINTALA,ANISHA offensive rebound",Opponent
+2,09:36,"CHINTALA,ANISHA made layup",Opponent
+3,09:18,"BROCK,CLAIRE missed 3-pt. jump shot",Emory
+4,09:14,"LAUDICK,MORGAN offensive rebound",Emory
+5,09:05,"BROCK,CLAIRE missed jump shot",Emory
+6,09:01,"MARTIN,ERIN offensive rebound",Emory
+7,08:55,"AUZA,MARIANE missed jump shot",Emory
+8,08:52,"CHINTALA,ANISHA defensive rebound",Opponent
+9,08:39,"GIBBS,SAVANNAH made layup",Opponent
+10,08:39,"Assist by CHINTALA,ANISHA",Opponent
+11,08:25,"MARTIN,ERIN made layup",Emory
+12,08:25,"Assist by BROCK,CLAIRE",Emory
+13,08:19,"Turnover by OR,CATHERINE",Opponent
+14,08:19,"Steal by BROCK,CLAIRE",Emory
+15,08:12,"BROCK,CLAIRE missed jump shot",Emory
+16,08:06,"MARTIN,ERIN offensive rebound",Emory
+17,07:59,"ARONSKY,DANIELLA missed 3-pt. jump shot",Emory
+18,07:56,TEAM offensive rebound,Emory
+19,07:49,"BROCK,CLAIRE missed layup",Emory
+20,07:45,"CHINTALA,ANISHA defensive rebound",Opponent
+21,07:43,"Turnover by CHINTALA,ANISHA",Opponent
+22,07:43,"Steal by AUZA,MARIANE",Emory
+23,07:27,"BROCK,CLAIRE missed jump shot",Emory
+24,07:22,"OR,CATHERINE defensive rebound",Opponent
+25,07:09,"CHINTALA,ANISHA missed 3-pt. jump shot",Opponent
+26,07:06,"OR,CATHERINE offensive rebound",Opponent
+27,06:55,"MATSKO,MEGAN missed layup",Opponent
+28,06:53,TEAM offensive rebound,Opponent
+29,06:53,"ANGWIN,ELLEN
+                                 goes to the bench",Opponent
+30,06:53,"BLACK,AVA
+                                 enters the game",Opponent
+31,06:44,"OR,CATHERINE missed jump shot",Opponent
+32,06:41,TEAM defensive rebound,Emory
+33,06:12,"BROCK,CLAIRE made 3-pt. jump shot",Emory
+34,06:12,"Assist by MARTIN,ERIN",Emory
+35,05:58,"BLACK,AVA missed layup",Opponent
+36,05:56,TEAM defensive rebound,Emory
+37,05:56,"Foul by BLACK,AVA",Opponent
+38,05:56,"LAUDICK,MORGAN
+                                 goes to the bench",Emory
+39,05:56,"GROSS,PAIGE
+                                 enters the game",Emory
+40,05:56,"CHINTALA,ANISHA
+                                 goes to the bench",Opponent
+41,05:56,"PRASAD,ANIKA
+                                 enters the game",Opponent
+42,05:40,"ARONSKY,DANIELLA missed layup",Emory
+43,05:37,"OR,CATHERINE defensive rebound",Opponent
+44,05:32,"Turnover by PRASAD,ANIKA",Opponent
+45,05:32,"Steal by MARTIN,ERIN",Emory
+46,05:23,"Foul by GIBBS,SAVANNAH",Opponent
+47,05:23,"ARONSKY,DANIELLA
+                                 goes to the bench",Emory
+48,05:23,"KENNEDY,LILY
+                                 enters the game",Emory
+49,05:23,"MARTIN,ERIN made free throw",Emory
+50,05:23,"MARTIN,ERIN made free throw",Emory
+51,05:02,"MATSKO,MEGAN made layup",Opponent
+52,04:51,"KENNEDY,LILY made layup",Emory
+53,04:25,"OR,CATHERINE missed 3-pt. jump shot",Opponent
+54,04:21,"BROCK,CLAIRE defensive rebound",Emory
+55,04:09,"Turnover by GROSS,PAIGE",Emory
+56,04:09,"AUZA,MARIANE
+                                 goes to the bench",Emory
+57,04:09,"MUNSON,IZZY
+                                 enters the game",Emory
+58,04:09,"GIBBS,SAVANNAH
+                                 goes to the bench",Opponent
+59,04:09,"LAFOND,LIV
+                                 enters the game",Opponent
+60,03:54,"LAFOND,LIV missed layup",Opponent
+61,03:54,"Block by MARTIN,ERIN",Emory
+62,03:50,"MARTIN,ERIN defensive rebound",Emory
+63,03:42,"BROCK,CLAIRE missed jump shot",Emory
+64,03:38,"BLACK,AVA defensive rebound",Opponent
+65,03:25,"BROCK,CLAIRE
+                                 goes to the bench",Emory
+66,03:25,"MARTIN,ERIN
+                                 goes to the bench",Emory
+67,03:25,"ARONSKY,DANIELLA
+                                 enters the game",Emory
+68,03:25,"LAUDICK,MORGAN
+                                 enters the game",Emory
+69,03:25,"MATSKO,MEGAN
+                                 goes to the bench",Opponent
+70,03:25,"CHINTALA,ANISHA
+                                 enters the game",Opponent
+71,03:10,"OR,CATHERINE missed layup",Opponent
+72,03:05,"OR,CATHERINE offensive rebound",Opponent
+73,03:04,"OR,CATHERINE made jump shot",Opponent
+74,02:49,"Turnover by MUNSON,IZZY",Emory
+75,02:35,"OR,CATHERINE missed layup",Opponent
+76,02:33,"LAUDICK,MORGAN defensive rebound",Emory
+77,02:28,"LAUDICK,MORGAN missed 3-pt. jump shot",Emory
+78,02:24,"OR,CATHERINE defensive rebound",Opponent
+79,02:03,"Foul by MUNSON,IZZY",Emory
+80,02:03,"KENNEDY,LILY
+                                 goes to the bench",Emory
+81,02:03,"GROSS,PAIGE
+                                 goes to the bench",Emory
+82,02:03,"MUNSON,IZZY
+                                 goes to the bench",Emory
+83,02:03,"AUZA,MARIANE
+                                 enters the game",Emory
+84,02:03,"BROCK,CLAIRE
+                                 enters the game",Emory
+85,02:03,"MARTIN,ERIN
+                                 enters the game",Emory
+86,02:03,"BLACK,AVA
+                                 goes to the bench",Opponent
+87,02:03,"LAFOND,LIV
+                                 goes to the bench",Opponent
+88,02:03,"GIBBS,SAVANNAH
+                                 enters the game",Opponent
+89,02:03,"ANGWIN,ELLEN
+                                 enters the game",Opponent
+90,01:52,"PRASAD,ANIKA made jump shot",Opponent
+91,01:35,"BROCK,CLAIRE missed jump shot",Emory
+92,01:31,"ANGWIN,ELLEN defensive rebound",Opponent
+93,01:20,"GIBBS,SAVANNAH made layup",Opponent
+94,01:20,"Assist by PRASAD,ANIKA",Opponent
+95,01:09,"LAUDICK,MORGAN missed jump shot",Emory
+96,01:06,"OR,CATHERINE defensive rebound",Opponent
+97,01:02,"PRASAD,ANIKA made 3-pt. jump shot",Opponent
+98,01:02,"Assist by OR,CATHERINE",Opponent
+99,00:45,"ARONSKY,DANIELLA made 3-pt. jump shot",Emory
+100,00:45,"Assist by AUZA,MARIANE",Emory
+101,00:31,"GIBBS,SAVANNAH made layup",Opponent
+102,00:31,"Assist by CHINTALA,ANISHA",Opponent
+103,00:31,"Foul by ARONSKY,DANIELLA",Emory
+104,00:31,"PRASAD,ANIKA
+                                 goes to the bench",Opponent
+105,00:31,"NAMBISAN,ISHA
+                                 enters the game",Opponent
+106,00:31,"GIBBS,SAVANNAH made free throw",Opponent
+107,00:21,"ARONSKY,DANIELLA made 3-pt. jump shot",Emory
+108,00:21,"Assist by AUZA,MARIANE",Emory
+109,09:51,"LAUDICK,MORGAN missed layup",Emory
+110,09:48,"OR,CATHERINE defensive rebound",Opponent
+111,09:29,"NAMBISAN,ISHA missed 3-pt. jump shot",Opponent
+112,09:26,TEAM defensive rebound,Emory
+113,09:11,"Foul by CHINTALA,ANISHA",Opponent
+114,09:11,"ANGWIN,ELLEN
+                                 goes to the bench",Opponent
+115,09:11,"BLACK,AVA
+                                 enters the game",Opponent
+116,09:11,"BROCK,CLAIRE made free throw",Emory
+117,09:11,"BROCK,CLAIRE made free throw",Emory
+118,08:59,"Turnover by OR,CATHERINE",Opponent
+119,08:42,"BROCK,CLAIRE made layup",Emory
+120,08:42,"Assist by ARONSKY,DANIELLA",Emory
+121,08:29,"NAMBISAN,ISHA missed 3-pt. jump shot",Opponent
+122,08:25,"AUZA,MARIANE defensive rebound",Emory
+123,08:20,"LAUDICK,MORGAN made layup",Emory
+124,08:20,"Assist by ARONSKY,DANIELLA",Emory
+125,08:15,30SEC TIMEOUT by Carnegie Mellon,Opponent
+126,08:15,"NAMBISAN,ISHA
+                                 goes to the bench",Opponent
+127,08:15,"MATSKO,MEGAN
+                                 enters the game",Opponent
+128,08:04,"GIBBS,SAVANNAH made jump shot",Opponent
+129,08:04,"Assist by MATSKO,MEGAN",Opponent
+130,07:51,"BROCK,CLAIRE made 3-pt. jump shot",Emory
+131,07:51,"Assist by AUZA,MARIANE",Emory
+132,07:33,"Turnover by GIBBS,SAVANNAH",Opponent
+133,07:19,"BROCK,CLAIRE missed 3-pt. jump shot",Emory
+134,07:16,TEAM defensive rebound,Opponent
+135,06:55,"Foul by MARTIN,ERIN",Emory
+136,06:55,"LAUDICK,MORGAN
+                                 goes to the bench",Emory
+137,06:55,"GROSS,PAIGE
+                                 enters the game",Emory
+138,06:55,"BLACK,AVA
+                                 goes to the bench",Opponent
+139,06:55,"ANGWIN,ELLEN
+                                 enters the game",Opponent
+140,06:55,"CHINTALA,ANISHA made free throw",Opponent
+141,06:55,"CHINTALA,ANISHA made free throw",Opponent
+142,06:49,"Foul by MATSKO,MEGAN",Opponent
+143,06:49,"ARONSKY,DANIELLA missed free throw",Emory
+144,06:49,TEAM deadball rebound,Emory
+145,06:49,"ARONSKY,DANIELLA made free throw",Emory
+146,06:49,"AUZA,MARIANE
+                                 goes to the bench",Emory
+147,06:49,"MUNSON,IZZY
+                                 enters the game",Emory
+148,06:28,"CHINTALA,ANISHA missed layup",Opponent
+149,06:22,"MUNSON,IZZY defensive rebound",Emory
+150,06:06,"GROSS,PAIGE made 3-pt. jump shot",Emory
+151,06:06,"Assist by BROCK,CLAIRE",Emory
+152,05:41,"CHINTALA,ANISHA missed jump shot",Opponent
+153,05:37,"MARTIN,ERIN defensive rebound",Emory
+154,05:32,"MUNSON,IZZY missed layup",Emory
+155,05:28,"OR,CATHERINE defensive rebound",Opponent
+156,05:24,"Foul by BROCK,CLAIRE",Emory
+157,05:24,"ARONSKY,DANIELLA
+                                 goes to the bench",Emory
+158,05:24,"MARTIN,ERIN
+                                 goes to the bench",Emory
+159,05:24,"KENNEDY,LILY
+                                 enters the game",Emory
+160,05:24,"LAUDICK,MORGAN
+                                 enters the game",Emory
+161,05:24,"ANGWIN,ELLEN
+                                 goes to the bench",Opponent
+162,05:24,"BLACK,AVA
+                                 enters the game",Opponent
+163,05:10,"BLACK,AVA missed layup",Opponent
+164,05:04,"MATSKO,MEGAN offensive rebound",Opponent
+165,05:01,"BLACK,AVA missed layup",Opponent
+166,04:59,"LAUDICK,MORGAN defensive rebound",Emory
+167,04:58,"BROCK,CLAIRE missed jump shot",Emory
+168,04:55,"MATSKO,MEGAN defensive rebound",Opponent
+169,04:48,"Turnover by BLACK,AVA",Opponent
+170,04:48,"MATSKO,MEGAN
+                                 goes to the bench",Opponent
+171,04:48,"LIGOTTI,PIPER
+                                 enters the game",Opponent
+172,04:18,"MUNSON,IZZY made layup",Emory
+173,04:11,"LIGOTTI,PIPER missed 3-pt. jump shot",Opponent
+174,04:06,"LAUDICK,MORGAN defensive rebound",Emory
+175,03:49,"BROCK,CLAIRE missed layup",Emory
+176,03:49,"Block by BLACK,AVA",Opponent
+177,03:49,TEAM offensive rebound,Emory
+178,03:49,"GIBBS,SAVANNAH
+                                 goes to the bench",Opponent
+179,03:49,"CHINTALA,ANISHA
+                                 goes to the bench",Opponent
+180,03:49,"PRASAD,ANIKA
+                                 enters the game",Opponent
+181,03:49,"LAFOND,LIV
+                                 enters the game",Opponent
+182,03:41,"MUNSON,IZZY made 3-pt. jump shot",Emory
+183,03:41,"Assist by LAUDICK,MORGAN",Emory
+184,03:31,"LIGOTTI,PIPER missed layup",Opponent
+185,03:31,"Block by LAUDICK,MORGAN",Emory
+186,03:27,"KENNEDY,LILY defensive rebound",Emory
+187,03:23,"LAUDICK,MORGAN missed 3-pt. jump shot",Emory
+188,03:20,"OR,CATHERINE defensive rebound",Opponent
+189,03:20,30SEC TIMEOUT by Carnegie Mellon,Opponent
+190,03:20,"GROSS,PAIGE
+                                 goes to the bench",Emory
+191,03:20,"MUNSON,IZZY
+                                 goes to the bench",Emory
+192,03:20,"AUZA,MARIANE
+                                 enters the game",Emory
+193,03:20,"MARTINI,KATHERINE
+                                 enters the game",Emory
+194,02:54,"OR,CATHERINE missed layup",Opponent
+195,02:54,"Block by AUZA,MARIANE",Emory
+196,02:53,TEAM deadball rebound,Opponent
+197,02:53,Turnover by TEAM,Opponent
+198,02:53,"LIGOTTI,PIPER
+                                 goes to the bench",Opponent
+199,02:53,"PRASAD,ANIKA
+                                 goes to the bench",Opponent
+200,02:53,"LAFOND,LIV
+                                 goes to the bench",Opponent
+201,02:53,"GIBBS,SAVANNAH
+                                 enters the game",Opponent
+202,02:53,"CHINTALA,ANISHA
+                                 enters the game",Opponent
+203,02:53,"MATSKO,MEGAN
+                                 enters the game",Opponent
+204,02:38,"KENNEDY,LILY missed layup",Emory
+205,02:38,"Block by BLACK,AVA",Opponent
+206,02:32,"KENNEDY,LILY offensive rebound",Emory
+207,02:30,"Turnover by MARTINI,KATHERINE",Emory
+208,02:30,"Steal by OR,CATHERINE",Opponent
+209,02:15,"GIBBS,SAVANNAH made layup",Opponent
+210,02:15,"Assist by OR,CATHERINE",Opponent
+211,02:06,"LAUDICK,MORGAN missed 3-pt. jump shot",Emory
+212,02:04,TEAM defensive rebound,Opponent
+213,02:04,"KENNEDY,LILY
+                                 goes to the bench",Emory
+214,02:04,"LAUDICK,MORGAN
+                                 goes to the bench",Emory
+215,02:04,"BROCK,CLAIRE
+                                 goes to the bench",Emory
+216,02:04,"ARONSKY,DANIELLA
+                                 enters the game",Emory
+217,02:04,"GERY,LILAH
+                                 enters the game",Emory
+218,02:04,"MARTIN,ERIN
+                                 enters the game",Emory
+219,01:40,"OR,CATHERINE made jump shot",Opponent
+220,01:40,"Assist by CHINTALA,ANISHA",Opponent
+221,01:17,"MARTINI,KATHERINE missed jump shot",Emory
+222,01:13,"MARTIN,ERIN offensive rebound",Emory
+223,01:11,"GERY,LILAH missed 3-pt. jump shot",Emory
+224,01:07,"MATSKO,MEGAN defensive rebound",Opponent
+225,01:00,"OR,CATHERINE made jump shot",Opponent
+226,00:39,"MARTIN,ERIN made jump shot",Emory
+227,00:39,"Assist by ARONSKY,DANIELLA",Emory
+228,00:23,"GIBBS,SAVANNAH made layup",Opponent
+229,00:23,"Assist by CHINTALA,ANISHA",Opponent
+230,00:05,"Foul by MATSKO,MEGAN",Opponent
+231,00:05,"AUZA,MARIANE
+                                 goes to the bench",Emory
+232,00:05,"MARTINI,KATHERINE
+                                 goes to the bench",Emory
+233,00:05,"GROSS,PAIGE
+                                 enters the game",Emory
+234,00:05,"BROCK,CLAIRE
+                                 enters the game",Emory
+235,10:00,"GROSS,PAIGE
+                                 goes to the bench",Emory
+236,10:00,"GERY,LILAH
+                                 goes to the bench",Emory
+237,10:00,"AUZA,MARIANE
+                                 enters the game",Emory
+238,10:00,"LAUDICK,MORGAN
+                                 enters the game",Emory
+239,10:00,"BLACK,AVA
+                                 goes to the bench",Opponent
+240,10:00,"ANGWIN,ELLEN
+                                 enters the game",Opponent
+241,09:53,"GIBBS,SAVANNAH missed jump shot",Opponent
+242,09:53,"Block by LAUDICK,MORGAN",Emory
+243,09:46,"MARTIN,ERIN defensive rebound",Emory
+244,09:45,"AUZA,MARIANE made layup",Emory
+245,09:45,"Assist by LAUDICK,MORGAN",Emory
+246,09:28,"GIBBS,SAVANNAH missed layup",Opponent
+247,09:28,"Block by MARTIN,ERIN",Emory
+248,09:23,"LAUDICK,MORGAN defensive rebound",Emory
+249,09:19,"Turnover by MARTIN,ERIN",Emory
+250,08:54,"MATSKO,MEGAN missed layup",Opponent
+251,08:51,"BROCK,CLAIRE defensive rebound",Emory
+252,08:45,"AUZA,MARIANE missed jump shot",Emory
+253,08:41,"MATSKO,MEGAN defensive rebound",Opponent
+254,08:28,"Turnover by CHINTALA,ANISHA",Opponent
+255,08:28,"ANGWIN,ELLEN
+                                 goes to the bench",Opponent
+256,08:28,"NAMBISAN,ISHA
+                                 enters the game",Opponent
+257,08:14,"BROCK,CLAIRE made 3-pt. jump shot",Emory
+258,08:14,"Assist by LAUDICK,MORGAN",Emory
+259,08:08,30SEC TIMEOUT by Carnegie Mellon,Opponent
+260,07:55,"Foul by MARTIN,ERIN",Emory
+261,07:55,"OR,CATHERINE made free throw",Opponent
+262,07:55,"OR,CATHERINE made free throw",Opponent
+263,07:28,"Turnover by ARONSKY,DANIELLA",Emory
+264,07:12,"OR,CATHERINE missed 3-pt. jump shot",Opponent
+265,07:07,"LAUDICK,MORGAN defensive rebound",Emory
+266,06:57,"MARTIN,ERIN missed layup",Emory
+267,06:55,"OR,CATHERINE defensive rebound",Opponent
+268,06:32,"MATSKO,MEGAN made 3-pt. jump shot",Opponent
+269,06:32,"Assist by GIBBS,SAVANNAH",Opponent
+270,06:03,"MARTIN,ERIN missed jump shot",Emory
+271,06:00,"NAMBISAN,ISHA defensive rebound",Opponent
+272,05:41,"OR,CATHERINE made 3-pt. jump shot",Opponent
+273,05:41,"Assist by NAMBISAN,ISHA",Opponent
+274,05:33,"AUZA,MARIANE
+                                 goes to the bench",Emory
+275,05:33,"LAUDICK,MORGAN
+                                 goes to the bench",Emory
+276,05:33,"BROCK,CLAIRE
+                                 goes to the bench",Emory
+277,05:33,"KENNEDY,LILY
+                                 enters the game",Emory
+278,05:33,"GROSS,PAIGE
+                                 enters the game",Emory
+279,05:33,"MUNSON,IZZY
+                                 enters the game",Emory
+280,05:33,"CHINTALA,ANISHA
+                                 goes to the bench",Opponent
+281,05:33,"PRASAD,ANIKA
+                                 enters the game",Opponent
+282,05:27,"ARONSKY,DANIELLA missed layup",Emory
+283,05:27,"Block by GIBBS,SAVANNAH",Opponent
+284,05:24,"GIBBS,SAVANNAH defensive rebound",Opponent
+285,05:14,"GIBBS,SAVANNAH made layup",Opponent
+286,05:14,"Assist by PRASAD,ANIKA",Opponent
+287,05:03,"Turnover by GROSS,PAIGE",Emory
+288,05:03,"Steal by PRASAD,ANIKA",Opponent
+289,04:40,"GIBBS,SAVANNAH made layup",Opponent
+290,04:34,30SEC TIMEOUT by Opponent,Emory
+291,04:34,"KENNEDY,LILY
+                                 goes to the bench",Emory
+292,04:34,"BROCK,CLAIRE
+                                 enters the game",Emory
+293,04:25,"ARONSKY,DANIELLA made layup",Emory
+294,04:06,"PRASAD,ANIKA missed 3-pt. jump shot",Opponent
+295,04:03,"BROCK,CLAIRE defensive rebound",Emory
+296,04:01,"BROCK,CLAIRE missed 3-pt. jump shot",Emory
+297,03:57,TEAM defensive rebound,Opponent
+298,03:57,"MARTIN,ERIN
+                                 goes to the bench",Emory
+299,03:57,"LAUDICK,MORGAN
+                                 enters the game",Emory
+300,03:48,"MATSKO,MEGAN missed layup",Opponent
+301,03:48,"Block by GROSS,PAIGE",Emory
+302,03:44,"GROSS,PAIGE defensive rebound",Emory
+303,03:35,"Foul by PRASAD,ANIKA",Opponent
+304,03:35,"BROCK,CLAIRE made free throw",Emory
+305,03:35,"BROCK,CLAIRE made free throw",Emory
+306,03:35,"GROSS,PAIGE
+                                 goes to the bench",Emory
+307,03:35,"AUZA,MARIANE
+                                 enters the game",Emory
+308,03:12,"PRASAD,ANIKA missed layup",Opponent
+309,03:09,"MATSKO,MEGAN offensive rebound",Opponent
+310,03:09,"Turnover by MATSKO,MEGAN",Opponent
+311,02:48,"BROCK,CLAIRE missed 3-pt. jump shot",Emory
+312,02:43,"MUNSON,IZZY offensive rebound",Emory
+313,02:42,"ARONSKY,DANIELLA made 3-pt. jump shot",Emory
+314,02:42,"Assist by MUNSON,IZZY",Emory
+315,02:32,"LAUDICK,MORGAN
+                                 goes to the bench",Emory
+316,02:32,"MARTIN,ERIN
+                                 enters the game",Emory
+317,02:32,"NAMBISAN,ISHA
+                                 goes to the bench",Opponent
+318,02:32,"CHINTALA,ANISHA
+                                 enters the game",Opponent
+319,02:16,"GIBBS,SAVANNAH missed layup",Opponent
+320,02:14,"MUNSON,IZZY defensive rebound",Emory
+321,02:06,"MUNSON,IZZY missed 3-pt. jump shot",Emory
+322,02:02,"BROCK,CLAIRE offensive rebound",Emory
+323,01:59,"MARTIN,ERIN made 3-pt. jump shot",Emory
+324,01:59,"Assist by ARONSKY,DANIELLA",Emory
+325,01:37,"Foul by ARONSKY,DANIELLA",Emory
+326,01:37,"MUNSON,IZZY
+                                 goes to the bench",Emory
+327,01:37,"KENNEDY,LILY
+                                 enters the game",Emory
+328,01:37,"GIBBS,SAVANNAH
+                                 goes to the bench",Opponent
+329,01:37,"BLACK,AVA
+                                 enters the game",Opponent
+330,01:31,"OR,CATHERINE made jump shot",Opponent
+331,01:25,"ARONSKY,DANIELLA made 3-pt. jump shot",Emory
+332,01:11,"PRASAD,ANIKA made 3-pt. jump shot",Opponent
+333,00:57,"KENNEDY,LILY missed layup",Emory
+334,00:54,"MATSKO,MEGAN defensive rebound",Opponent
+335,00:34,"MATSKO,MEGAN missed layup",Opponent
+336,00:34,"Block by BROCK,CLAIRE",Emory
+337,00:34,"MATSKO,MEGAN offensive rebound",Opponent
+338,00:34,"MATSKO,MEGAN made layup",Opponent
+339,00:34,"Foul by KENNEDY,LILY",Emory
+340,00:34,"AUZA,MARIANE
+                                 goes to the bench",Emory
+341,00:34,"LOWNDES,CHARLOTTE
+                                 enters the game",Emory
+342,00:34,"MATSKO,MEGAN made free throw",Opponent
+343,00:06,"Foul by LOWNDES,CHARLOTTE",Emory
+344,00:06,"Turnover by LOWNDES,CHARLOTTE",Emory
+345,00:00,"OR,CATHERINE missed 3-pt. jump shot",Opponent
+346,00:00,TEAM deadball rebound,Opponent
+347,10:00,"KENNEDY,LILY
+                                 goes to the bench",Emory
+348,10:00,"LOWNDES,CHARLOTTE
+                                 goes to the bench",Emory
+349,10:00,"AUZA,MARIANE
+                                 enters the game",Emory
+350,10:00,"LAUDICK,MORGAN
+                                 enters the game",Emory
+351,09:53,"ARONSKY,DANIELLA missed layup",Emory
+352,09:46,"BLACK,AVA defensive rebound",Opponent
+353,09:33,"OR,CATHERINE made jump shot",Opponent
+354,09:09,"Foul by CHINTALA,ANISHA",Opponent
+355,09:09,"AUZA,MARIANE missed free throw",Emory
+356,09:09,TEAM deadball rebound,Emory
+357,09:09,"AUZA,MARIANE made free throw",Emory
+358,09:09,"MATSKO,MEGAN
+                                 goes to the bench",Opponent
+359,09:09,"GIBBS,SAVANNAH
+                                 enters the game",Opponent
+360,08:49,"PRASAD,ANIKA missed 3-pt. jump shot",Opponent
+361,08:43,"OR,CATHERINE offensive rebound",Opponent
+362,08:38,Turnover by TEAM,Opponent
+363,08:24,"MARTIN,ERIN missed 3-pt. jump shot",Emory
+364,08:18,"OR,CATHERINE defensive rebound",Opponent
+365,08:13,"OR,CATHERINE made jump shot",Opponent
+366,08:00,"Turnover by MARTIN,ERIN",Emory
+367,08:00,"Steal by BLACK,AVA",Opponent
+368,07:47,"CHINTALA,ANISHA made layup",Opponent
+369,07:47,"Assist by BLACK,AVA",Opponent
+370,07:47,"Foul by ARONSKY,DANIELLA",Emory
+371,07:47,"ARONSKY,DANIELLA
+                                 goes to the bench",Emory
+372,07:47,"MUNSON,IZZY
+                                 enters the game",Emory
+373,07:47,"BLACK,AVA
+                                 goes to the bench",Opponent
+374,07:47,"MATSKO,MEGAN
+                                 enters the game",Opponent
+375,07:47,"CHINTALA,ANISHA missed free throw",Opponent
+376,07:46,"LAUDICK,MORGAN defensive rebound",Emory
+377,07:22,"Foul by CHINTALA,ANISHA",Opponent
+378,07:22,"BROCK,CLAIRE made free throw",Emory
+379,07:22,"BROCK,CLAIRE missed free throw",Emory
+380,07:22,"GIBBS,SAVANNAH defensive rebound",Opponent
+381,07:10,"LAUDICK,MORGAN
+                                 goes to the bench",Emory
+382,07:10,"GROSS,PAIGE
+                                 enters the game",Emory
+383,07:03,"Turnover by GIBBS,SAVANNAH",Opponent
+384,06:51,"AUZA,MARIANE missed jump shot",Emory
+385,06:46,"PRASAD,ANIKA defensive rebound",Opponent
+386,06:39,"Foul by AUZA,MARIANE",Emory
+387,06:39,"AUZA,MARIANE
+                                 goes to the bench",Emory
+388,06:39,"ARONSKY,DANIELLA
+                                 enters the game",Emory
+389,06:39,"PRASAD,ANIKA
+                                 goes to the bench",Opponent
+390,06:39,"BLACK,AVA
+                                 enters the game",Opponent
+391,06:37,"Foul by BLACK,AVA",Opponent
+392,06:37,"Turnover by BLACK,AVA",Opponent
+393,06:27,"MUNSON,IZZY made layup",Emory
+394,06:27,"Assist by MARTIN,ERIN",Emory
+395,06:09,"OR,CATHERINE missed 3-pt. jump shot",Opponent
+396,06:04,"BROCK,CLAIRE defensive rebound",Emory
+397,05:54,"MUNSON,IZZY missed jump shot",Emory
+398,05:50,"MATSKO,MEGAN defensive rebound",Opponent
+399,05:37,"Foul by MARTIN,ERIN",Emory
+400,05:37,"MARTIN,ERIN
+                                 goes to the bench",Emory
+401,05:37,"LAUDICK,MORGAN
+                                 enters the game",Emory
+402,05:18,"CHINTALA,ANISHA missed jump shot",Opponent
+403,05:15,"BLACK,AVA offensive rebound",Opponent
+404,05:14,"BLACK,AVA missed layup",Opponent
+405,05:14,"Block by LAUDICK,MORGAN",Emory
+406,05:08,"GROSS,PAIGE defensive rebound",Emory
+407,05:06,"GROSS,PAIGE missed 3-pt. jump shot",Emory
+408,05:05,TEAM offensive rebound,Emory
+409,05:05,"MUNSON,IZZY
+                                 goes to the bench",Emory
+410,05:05,"AUZA,MARIANE
+                                 enters the game",Emory
+411,05:00,"BROCK,CLAIRE made jump shot",Emory
+412,04:53,"Foul by ARONSKY,DANIELLA",Emory
+413,04:32,"Foul by AUZA,MARIANE",Emory
+414,04:32,"ARONSKY,DANIELLA
+                                 goes to the bench",Emory
+415,04:32,"MUNSON,IZZY
+                                 enters the game",Emory
+416,04:32,"OR,CATHERINE made free throw",Opponent
+417,04:32,"OR,CATHERINE made free throw",Opponent
+418,04:19,"AUZA,MARIANE missed layup",Emory
+419,04:18,TEAM defensive rebound,Opponent
+420,04:18,"GROSS,PAIGE
+                                 goes to the bench",Emory
+421,04:18,"MARTIN,ERIN
+                                 enters the game",Emory
+422,03:54,"Turnover by OR,CATHERINE",Opponent
+423,03:54,"Steal by AUZA,MARIANE",Emory
+424,03:45,"BROCK,CLAIRE missed layup",Emory
+425,03:43,"AUZA,MARIANE offensive rebound",Emory
+426,03:41,"MUNSON,IZZY missed 3-pt. jump shot",Emory
+427,03:39,TEAM deadball rebound,Opponent
+428,03:39,"Foul by LAUDICK,MORGAN",Emory
+429,03:39,"BLACK,AVA
+                                 goes to the bench",Opponent
+430,03:39,"PRASAD,ANIKA
+                                 enters the game",Opponent
+431,03:39,"MATSKO,MEGAN made free throw",Opponent
+432,03:39,"MATSKO,MEGAN made free throw",Opponent
+433,03:13,"BROCK,CLAIRE made layup",Emory
+434,03:13,"Foul by MATSKO,MEGAN",Opponent
+435,03:13,"BROCK,CLAIRE made free throw",Emory
+436,03:00,"PRASAD,ANIKA missed layup",Opponent
+437,03:00,"PRASAD,ANIKA offensive rebound",Opponent
+438,02:55,"Foul by AUZA,MARIANE",Emory
+439,02:55,"MATSKO,MEGAN made free throw",Opponent
+440,02:55,"MATSKO,MEGAN made free throw",Opponent
+441,02:50,"Foul by CHINTALA,ANISHA",Opponent
+442,02:50,"BROCK,CLAIRE missed free throw",Emory
+443,02:50,TEAM deadball rebound,Emory
+444,02:50,"BROCK,CLAIRE made free throw",Emory
+445,02:26,"PRASAD,ANIKA missed layup",Opponent
+446,02:23,"LAUDICK,MORGAN defensive rebound",Emory
+447,02:17,"Turnover by MUNSON,IZZY",Emory
+448,02:04,"GIBBS,SAVANNAH missed layup",Opponent
+449,02:02,"MARTIN,ERIN defensive rebound",Emory
+450,01:45,"MUNSON,IZZY missed layup",Emory
+451,01:44,"CHINTALA,ANISHA defensive rebound",Opponent
+452,01:44,"Turnover by CHINTALA,ANISHA",Opponent
+453,01:44,"Steal by MUNSON,IZZY",Emory
+454,01:44,"MUNSON,IZZY
+                                 goes to the bench",Emory
+455,01:44,"ARONSKY,DANIELLA
+                                 enters the game",Emory
+456,01:39,"ARONSKY,DANIELLA made 3-pt. jump shot",Emory
+457,01:39,"Assist by AUZA,MARIANE",Emory
+458,01:31,TEAM TIMEOUT by Carnegie Mellon,Opponent
+459,01:31,"ARONSKY,DANIELLA
+                                 goes to the bench",Emory
+460,01:31,"MUNSON,IZZY
+                                 enters the game",Emory
+461,01:31,"PRASAD,ANIKA
+                                 goes to the bench",Opponent
+462,01:31,"BLACK,AVA
+                                 enters the game",Opponent
+463,01:15,"GIBBS,SAVANNAH missed layup",Opponent
+464,01:12,"MARTIN,ERIN defensive rebound",Emory
+465,01:05,30SEC TIMEOUT by Opponent,Emory
+466,01:05,"MUNSON,IZZY
+                                 goes to the bench",Emory
+467,01:05,"ARONSKY,DANIELLA
+                                 enters the game",Emory
+468,01:05,"BLACK,AVA
+                                 goes to the bench",Opponent
+469,01:05,"PRASAD,ANIKA
+                                 enters the game",Opponent
+470,00:45,"AUZA,MARIANE missed jump shot",Emory
+471,00:44,TEAM deadball rebound,Opponent
+472,00:44,"Foul by AUZA,MARIANE",Emory
+473,00:44,"OR,CATHERINE made free throw",Opponent
+474,00:44,"OR,CATHERINE made free throw",Opponent
+475,00:44,TEAM TIMEOUT by Opponent,Emory
+476,00:44,"BROCK,CLAIRE missed layup",Emory
+477,00:42,"OR,CATHERINE defensive rebound",Opponent
+478,00:29,"CHINTALA,ANISHA missed layup",Opponent
+479,00:27,"LAUDICK,MORGAN defensive rebound",Emory
+480,00:02,"Turnover by LAUDICK,MORGAN",Emory
+481,00:02,"Steal by OR,CATHERINE",Opponent
+482,00:02,TEAM TIMEOUT by Carnegie Mellon,Opponent
+483,00:02,"PRASAD,ANIKA
+                                 goes to the bench",Opponent
+484,00:02,"BLACK,AVA
+                                 enters the game",Opponent
+485,00:01,"MATSKO,MEGAN made jump shot",Opponent
+486,00:01,"Assist by OR,CATHERINE",Opponent
+487,00:00,TEAM TIMEOUT by Opponent,Emory
+488,00:00,"AUZA,MARIANE made jump shot",Emory
+489,00:00,"Assist by ARONSKY,DANIELLA",Emory
