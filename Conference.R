@@ -4,9 +4,9 @@ library(ggimage)
 library(gsheet)
 rm(list = ls())
 
-women <- TRUE
-date <- "January 22, 2023"
-n <- 5 # 7 soon
+women <- FALSE
+date <- "January 29, 2023"
+n <- 7
 uaa <- TRUE
 
 mbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/mbb_uaa_scout.csv")
@@ -63,8 +63,6 @@ ppp <-
   geom_image(aes(image=URL),
              size=0.1,
              stat='identity') +
-  xlim(0.75, 1.10) +
-  ylim(0.8, 1.10) +
   labs(title="Who runs the most efficient offense/defense?",
        subtitle=subtitle,
        x="Points Per Possession (PPP)",
@@ -92,12 +90,11 @@ rebounds <-
   geom_image(aes(image=URL),
              size=0.1,
              stat='identity') +
-  xlim(66, 80) +
-  ylim(15, 37) +
   labs(title="Who are the best and worst rebounding teams?",
        subtitle=subtitle,
        x="Defensive Rebound Rate (DRB%)",
-       y="Offensive Rebound Rate (ORB%)") +
+       y="Offensive Rebound Rate (ORB%)",
+       caption=paste("(", toString(n), " total games)", sep="")) +
   theme_linedraw() +
   theme(
     plot.margin = margin(1, 0.5, 0.5, 0.5, "cm"),
@@ -120,10 +117,13 @@ turnovers <-
   geom_image(aes(image=URL),
              size=0.1,
              stat='identity') +
+  xlim(floor(min(conference$`TO%`)), ceiling(max(conference$`TO%`))) +
+  ylim(floor(min(conference$`OPP TO%`)), ceiling(max(conference$`OPP TO%`))) +
   labs(title="Which teams commit and force the most turnovers?",
        subtitle=subtitle,
        x="Team Turnover Rate (TO%)",
-       y="Opponent Turnover Rate (OPP TO%)") +
+       y="Opponent Turnover Rate (OPP TO%)",
+       caption=paste("(", toString(n), " total games)", sep="")) +
   theme_linedraw() +
   theme(
     plot.margin = margin(1, 0.5, 0.5, 0.5, "cm"),
