@@ -5,8 +5,8 @@ library(gsheet)
 rm(list = ls())
 
 women <- FALSE
-date <- "January 29, 2023"
-n <- 7
+date <- "February 5, 2023"
+n <- 9
 uaa <- TRUE
 
 mbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/mbb_uaa_scout.csv")

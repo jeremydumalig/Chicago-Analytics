@@ -1,0 +1,60 @@
+,Play Type,Outcome
+0,Under Pa,s
+1,Under Drive,0
+2,Under Pa,s
+3,Switch Drive Turnov,r
+4,Switch Pa,s
+5,Over Pa,s
+6,Under Pull-Up,0
+7,Switch Pa,s
+8,Switch Roll,1
+9,Switch Pa,s
+10,Switch Pa,s
+11,Switch Pull-Up,0
+12,Switch Pa,s
+13,Switch Drive,0
+14,Switch Drive,0
+15,Switch Pa,s
+16,Switch Pull-Up,1
+17,Under Pull-Up,1
+18,Switch Drive,1
+19,Switch Pa,s
+20,Under Pull-Up,0
+21,Switch Drive,0
+22,Switch Drive Pa,s
+23,Switch Drive,1
+24,Switch Roll,1
+25,Switch Pa,s
+26,Switch Roll,1
+27,Switch Pa,s
+28,Switch Pa,s
+29,Under Pa,s
+30,Switch Pa,s
+31,Switch Pa,s
+32,Under Pull-Up,0
+33,Over Pa,s
+34,Over Pa,s
+35,Over Drive Pa,s
+36,Over Pa,s
+37,Over Roll Pa,s
+38,Over Pop Turnov,r
+39,Switch Pa,s
+40,Over Pa,s
+41,Switch Roll Turnov,r
+42,Over Drive Pa,s
+43,Switch Drive,1
+44,Over Pa,s
+45,Over Drive,0
+46,Switch Pa,s
+47,Over Drive,0
+48,Switch Drive,1
+49,Over Pa,s
+50,Over Pull-Up,0
+51,Over Drive Pa,s
+52,Over Pop,0
+53,Reject Pop,0
+54,Reject Drive,0
+55,Reject Pa,s
+56,Reject Drive Fo,l
+57,Reject Drive,0
+58,Reject Pa,s

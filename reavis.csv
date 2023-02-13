@@ -1,0 +1,53 @@
+,Play Type,Outcome
+0,Transition,1
+1,Transition,1
+2,Transition,0
+3,Transition,0
+4,Pull-Up 3,0
+5,Pull-Up 3,0
+6,Pull-Up 3,0
+7,Pull-Up 3,0
+8,Pull-Up 2,0
+9,Pull-Up 2,0
+10,Pull-Up 2,0
+11,Pull-Up 2,0
+12,Pull-Up 2,0
+13,Pull-Up 2,0
+14,Pull-Up 3,1
+15,Pull-Up 2,1
+16,Pull-Up 2,1
+17,Pull-Up 2,1
+18,Isolation/Drive,0
+19,Isolation/Drive,0
+20,Isolation/Drive,0
+21,Isolation/Drive,0
+22,Isolation/Drive,1
+23,Isolation/Drive,1
+24,Isolation/Drive,1
+25,Isolation/Drive,1
+26,Isolation/Drive,1
+27,Isolation/Drive,1
+28,Post-Up,0
+29,Post-Up,0
+30,Catch + Shoot,0
+31,Catch + Shoot,0
+32,Catch + Shoot,0
+33,Catch + Shoot,0
+34,Catch + Shoot,0
+35,Catch + Shoot,0
+36,Catch + Shoot,1
+37,Catch + Shoot,1
+38,Catch + Shoot,1
+39,Offensive Rebound,0
+40,Offensive Rebound,1
+41,Offensive Rebound,1
+42,Offensive Rebound,1
+43,Offensive Rebound,1
+44,Offensive Rebound,1
+45,PnR Drive,0
+46,PnR Drive,1
+47,Off-Ball Cut,0
+48,Off-Ball Cut,0
+49,Off-Ball Cut,0
+50,Off-Ball Cut,0
+51,Off-Ball Cut,1
