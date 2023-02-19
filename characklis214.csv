@@ -1,0 +1,34 @@
+,Play Type,Outcome
+0,Post-Up (Left),1
+1,Post-Up (Left),1
+2,Post-Up (Left),0
+3,Transition,0
+4,Transition,1
+5,Transition,1
+6,Transition,1
+7,Transition,1
+8,Transition,1
+9,Catch + Shoot,0
+10,Catch + Shoot,0
+11,Catch + Shoot,1
+12,Catch + Shoot,1
+13,Catch + Shoot,1
+14,Post-Up (Right),1
+15,Post-Up (Right),1
+16,Post-Up (Right),1
+17,Post-Up (Right),1
+18,Post-Up (Right),0
+19,Post-Up (Right),0
+20,Post-Up (Right),0
+21,Post-Up (Right),0
+22,Post-Up (Right),0
+23,Pull-Up,0
+24,Pull-Up,1
+25,Pull-Up,1
+26,Pull-Up,1
+27,Drive Left,0
+28,Drive Left,1
+29,Offensive Rebound,1
+30,Off-Ball Cut,0
+31,Off-Ball Cut,1
+32,PnR Roll Man,1

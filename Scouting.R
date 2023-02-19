@@ -29,7 +29,7 @@ read_csv("scout.csv") %>%
   tab_header(title = md("Knox Advanced Statistics"),
              subtitle = "UChicago Women's Basketball Team | 12/30/22 vs Knox")
 
-read_csv("nyu_o2.csv") %>%
+read_csv("w_case_o1.csv") %>%
   group_by(`Play Type`) %>%
   summarize(Foul = sum(Outcome == "F"),
             FGM = sum(Outcome == "1"),
@@ -51,8 +51,10 @@ read_csv("nyu_o2.csv") %>%
             locations = cells_title(groups = "title")) %>%
   tab_style(style = list(cell_text(weight = "bold")),
             locations = cells_body(columns = `Play Type`)) %>%
-  tab_header(title = md("NYU: Field Goal Attempt Outcomes"),
-             subtitle = "UChicago @ NYU | February 10, 2023")
+  tab_header(title = md("Case: Field Goal Attempt Outcomes"),
+             subtitle = "UChicago @ Case Western Reserve University | January 22, 2023")
+
+
 read_csv("nyu_m_threes2.csv") %>%
   group_by(`Play Type`) %>%
   summarize(FGM = sum(Outcome == "1"),
@@ -77,7 +79,7 @@ read_csv("nyu_m_threes2.csv") %>%
   tab_header(title = md("NYU: 3-Point Outcomes"),
              subtitle = "UChicago @ NYU | February 10, 2023")
 
-read_csv("bruns.csv") %>%
+read_csv("mitchell214.csv") %>%
   group_by(`Play Type`) %>%
   summarize(FGM = sum(Outcome == "1"),
             FGA = sum(Outcome == "0") + sum(Outcome == "1")) %>%
@@ -100,8 +102,37 @@ read_csv("bruns.csv") %>%
             locations = cells_title(groups = "title")) %>%
   tab_style(style = list(cell_text(weight = "bold")),
             locations = cells_body(columns = `Play Type`)) %>%
-  tab_header(title = md("#32 Natalie Bruns"),
-             subtitle = "New York University | Last 4 UAA Games") %>%
-  tab_footnote(footnote = "All from 3-point range",
+  tab_header(title = md("#33 Sarah Mitchell"),
+             subtitle = "Case Western Reserve University | Last 4 UAA Games") %>%
+  tab_footnote(footnote = "2/6 on right-handed finishes over left shoulder",
                locations = cells_body(columns = `Play Type`, 
-                                      rows = c(2)))
+                                      rows = c(1)))
+
+read_csv("mbb_tov214.csv") %>%
+  group_by(Player) %>%
+  summarize(`Perimeter` = sum(`Turnover Type` == "Perimeter/Strip"),
+            `Pass` = sum(`Turnover Type` == "Reversal/Pass"),
+            `Drive` = sum(`Turnover Type` == "Drive"),
+            `Drive + Pass` = sum(`Turnover Type` == "Drive + Pass"),
+            `Offensive Foul` = sum(`Turnover Type` == "Off-Ball"),
+            `Post` = sum(`Turnover Type` == "Post Entry"),
+            Total = n()) %>%
+  ungroup() %>%
+  arrange(desc(Total)) %>%
+  adorn_totals("row") %>%
+  gt() %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_column_labels(columns = everything())) %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_title(groups = "title")) %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_body(rows = (Player == "Total"))) %>%
+  tab_header(title = md("Turnover Breakdown: Player + Type"),
+             subtitle = "University of Chicago Men's Basketball | Last 4 UAA Games") %>%
+  tab_footnote(footnote = "Includes pick-pockets, travels, double-dribbles, out-of-bounds",
+               locations = cells_column_labels(columns = `Perimeter`)) %>%
+  tab_footnote(footnote = "Includes moving screens",
+               locations = cells_column_labels(columns = `Offensive Foul`)) %>%
+  tab_footnote(footnote = "Includes only post entry passes",
+               locations = cells_column_labels(columns = `Post`))
+

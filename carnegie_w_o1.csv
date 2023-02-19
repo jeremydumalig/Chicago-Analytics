@@ -1,0 +1,63 @@
+,Play Type,Outcome
+0,Transition,1
+1,Transition,1
+2,Transition,1
+3,Transition,0
+4,Transition,F
+5,Transition,F
+6,Catch + Shoot (3PT),0
+7,Catch + Shoot (3PT),0
+8,Catch + Shoot (3PT),1
+9,Post Kick,0
+10,Post Kick,0
+11,Perimeter/Pass,0
+12,Perimeter/Pass,0
+13,Perimeter/Pass,0
+14,PnR Roll Man,F
+15,Off-Ball Cut,0
+16,Off-Ball Cut,0
+17,Off-Ball Cut,0
+18,Off-Ball Cut,F
+19,Off-Ball Cut,F
+20,Off-Ball Cut,1
+21,Closeout Drive,1
+22,Closeout Drive,1
+23,Closeout Drive,0
+24,Closeout Drive,F
+25,Closeout Drive,F
+26,Pull-Up (2PT),0
+27,Pull-Up (2PT),0
+28,Pull-Up (2PT),0
+29,Pull-Up (2PT),1
+30,Pull-Up (2PT),F
+31,Offensive Rebound,1
+32,Offensive Rebound,1
+33,Offensive Rebound,1
+34,Offensive Rebound,1
+35,Offensive Rebound,F
+36,Offensive Rebound,F
+37,Offensive Rebound,F
+38,Drive + Kick,0
+39,Drive + Kick,0
+40,Drive + Kick,0
+41,Drive + Kick,0
+42,PnR Drive,0
+43,Pull-Up (3PT),0
+44,Pull-Up (3PT),1
+45,Pull-Up (3PT),1
+46,Post-Up,0
+47,Post-Up,0
+48,Post-Up,0
+49,Post-Up,0
+50,Post-Up,0
+51,Post-Up,0
+52,Post-Up,0
+53,Post-Up,1
+54,Post-Up,1
+55,Post-Up,1
+56,Post-Up,F
+57,Post-Up,F
+58,Isolation Drive,1
+59,Isolation Drive,1
+60,Isolation Drive,0
+61,Isolation Drive,F

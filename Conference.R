@@ -4,9 +4,11 @@ library(ggimage)
 library(gsheet)
 rm(list = ls())
 
+setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
+
 women <- FALSE
-date <- "February 5, 2023"
-n <- 9
+date <- "February 19, 2023"
+n <- 13
 uaa <- TRUE
 
 mbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/mbb_uaa_scout.csv")
@@ -14,6 +16,8 @@ wbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-An
 mbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1BcIP7CIYDTNnedcRG3U3HAIwluaJtz8LCAKfArlEh98/edit#gid=136251738")
 wbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLohmxQK6PyrbNbOQbM6ux4LxXqWenM/edit#gid=1703250336")
 logos <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uaa_logos.csv")
+mbb_standings <- read_csv("uaa_mbb_standings13.csv") %>% mutate(Ranking = 9 - Ranking)
+wbb_standings <- read_csv("uaa_wbb_standings12.csv") %>% mutate(Ranking = 9 - Ranking)
 
 if (women) {
   logs <- wbb_logs
@@ -39,18 +43,17 @@ if (uaa) {
   conference <- "Total"
 }
 
-logs <-
+logs_conf <-
   logs %>%
-  filter(Opponent == conference) %>%
-  select(Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)
-games <-
+  filter(Opponent == conference)
+games_conf <-
   games %>%
   filter(Game == conference) %>%
-  mutate(Team = "Chicago") %>%
-  select(Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)
+  mutate(Team = "Chicago")
 
 conference <- 
-  rbind(logs, games) %>%
+  rbind(select(logs_conf, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`), 
+        select(games_conf, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
   merge(logos, 
         by="Team")
 
@@ -137,6 +140,85 @@ turnovers <-
     plot.subtitle = element_text(size=14),
     plot.caption = element_text(size=10))
 
+mbb_rankings <-
+  mbb_standings %>%
+  ggplot(aes(x=Game, y=Ranking)) +
+  geom_point(aes(group=Team, color=Team),
+             size=3,
+             alpha=0.5,
+             show.legend=FALSE) +
+  geom_line(aes(group=Team, color=Team),
+            size=1,
+            show.legend=FALSE) +
+  geom_image(data=filter(mbb_standings, Game == n),
+             aes(image=URL),
+             size=0.1,
+             stat='identity') +
+  scale_color_manual(values=c("#19374c", "#bd1c40", "#e7a612", 
+                                       "#c61c31", "#661b8f", 
+                                       "#ffdc04", "#1b4264", "#870f00"),
+                     breaks = arrange(filter(mbb_standings, Game == n), desc(Ranking))$Team) +
+  labs(title="2023 UAA Men's Basketball Standings",
+       x=paste("Games Played (", n, " total)", sep=""),
+       y="Ranking") +
+  theme_linedraw() +
+  theme(
+    plot.margin = margin(1, 0.5, 0.5, 0.5, "cm"),
+    plot.background = element_rect(fill = "grey90",
+                                   color = "black"),
+    legend.box.background = element_rect(size=0.75),
+    axis.title.x = element_text(size=18,
+                                margin = margin(t=10)),
+    axis.title.y = element_text(size=18,
+                                margin = margin(r=10)),
+    axis.text.x=element_blank(),
+    axis.ticks.x=element_blank(),
+    axis.text.y=element_blank(),
+    axis.ticks.y=element_blank(),
+    plot.title = element_text(size=24,
+                              face="bold",
+                              margin = margin(b=10)))
+wbb_rankings <-
+  wbb_standings %>%
+  ggplot(aes(x=Game, y=Ranking)) +
+  geom_point(aes(group=Team, color=Team),
+             size=3,
+             alpha=0.5,
+             show.legend=FALSE) +
+  geom_line(aes(group=Team, color=Team),
+            size=1,
+            show.legend=FALSE) +
+  geom_image(data=filter(wbb_standings, Game == n),
+             aes(image=URL),
+             size=0.1,
+             stat='identity') +
+  scale_color_manual(values=c("#661b8f", "#bd1c40", "#870f00", 
+                                       "#ffdc04", "#e7a612", 
+                                       "#19374c", "#c61c31", "#1b4264"),
+                     breaks = arrange(filter(wbb_standings, Game == n), desc(Ranking))$Team) +
+  labs(title="2023 UAA Women's Basketball Standings",
+       x=paste("Games Played (", n, " total)", sep=""),
+       y="Ranking") +
+  theme_linedraw() +
+  theme(
+    plot.margin = margin(1, 0.5, 0.5, 0.5, "cm"),
+    plot.background = element_rect(fill = "grey90",
+                                   color = "black"),
+    legend.box.background = element_rect(size=0.75),
+    axis.title.x = element_text(size=18,
+                                margin = margin(t=10)),
+    axis.title.y = element_text(size=18,
+                                margin = margin(r=10)),
+    axis.text.x=element_blank(),
+    axis.ticks.x=element_blank(),
+    axis.text.y=element_blank(),
+    axis.ticks.y=element_blank(),
+    plot.title = element_text(size=24,
+                              face="bold",
+                              margin = margin(b=10)))
+
 # ppp
-rebounds
+# rebounds
 # turnovers
+mbb_rankings
+# wbb_rankings
