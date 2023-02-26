@@ -6,7 +6,7 @@ rm(list = ls())
 
 setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
 
-women <- FALSE
+women <- TRUE
 date <- "February 19, 2023"
 n <- 13
 uaa <- TRUE
@@ -17,7 +17,7 @@ mbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1BcIP7CIYDTNnedc
 wbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLohmxQK6PyrbNbOQbM6ux4LxXqWenM/edit#gid=1703250336")
 logos <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uaa_logos.csv")
 mbb_standings <- read_csv("uaa_mbb_standings13.csv") %>% mutate(Ranking = 9 - Ranking)
-wbb_standings <- read_csv("uaa_wbb_standings12.csv") %>% mutate(Ranking = 9 - Ranking)
+wbb_standings <- read_csv("uaa_wbb_standings13.csv") %>% mutate(Ranking = 9 - Ranking)
 
 if (women) {
   logs <- wbb_logs
@@ -158,9 +158,11 @@ mbb_rankings <-
                                        "#c61c31", "#661b8f", 
                                        "#ffdc04", "#1b4264", "#870f00"),
                      breaks = arrange(filter(mbb_standings, Game == n), desc(Ranking))$Team) +
+  scale_x_discrete(limits = levels(wbb_standings$Game)) +
+  scale_y_discrete(limits = rev(levels(wbb_standings$Ranking))) +
   labs(title="2023 UAA Men's Basketball Standings",
        x=paste("Games Played (", n, " total)", sep=""),
-       y="Ranking") +
+       y="Wins") +
   theme_linedraw() +
   theme(
     plot.margin = margin(1, 0.5, 0.5, 0.5, "cm"),
@@ -171,22 +173,20 @@ mbb_rankings <-
                                 margin = margin(t=10)),
     axis.title.y = element_text(size=18,
                                 margin = margin(r=10)),
-    axis.text.x=element_blank(),
-    axis.ticks.x=element_blank(),
-    axis.text.y=element_blank(),
-    axis.ticks.y=element_blank(),
     plot.title = element_text(size=24,
                               face="bold",
                               margin = margin(b=10)))
 wbb_rankings <-
   wbb_standings %>%
+  filter(Game > 0) %>%
   ggplot(aes(x=Game, y=Ranking)) +
   geom_point(aes(group=Team, color=Team),
              size=3,
-             alpha=0.5,
+             alpha=0.75,
              show.legend=FALSE) +
   geom_line(aes(group=Team, color=Team),
             size=1,
+            alpha=0.5,
             show.legend=FALSE) +
   geom_image(data=filter(wbb_standings, Game == n),
              aes(image=URL),
@@ -195,7 +195,9 @@ wbb_rankings <-
   scale_color_manual(values=c("#661b8f", "#bd1c40", "#870f00", 
                                        "#ffdc04", "#e7a612", 
                                        "#19374c", "#c61c31", "#1b4264"),
-                     breaks = arrange(filter(wbb_standings, Game == n), desc(Ranking))$Team) +
+                                       breaks = arrange(filter(wbb_standings, Game == n), desc(Ranking))$Team) +
+  scale_x_discrete(limits = levels(wbb_standings$Game)) +
+  scale_y_discrete(limits = rev(levels(wbb_standings$Ranking))) +
   labs(title="2023 UAA Women's Basketball Standings",
        x=paste("Games Played (", n, " total)", sep=""),
        y="Ranking") +
@@ -209,10 +211,6 @@ wbb_rankings <-
                                 margin = margin(t=10)),
     axis.title.y = element_text(size=18,
                                 margin = margin(r=10)),
-    axis.text.x=element_blank(),
-    axis.ticks.x=element_blank(),
-    axis.text.y=element_blank(),
-    axis.ticks.y=element_blank(),
     plot.title = element_text(size=24,
                               face="bold",
                               margin = margin(b=10)))
@@ -220,5 +218,5 @@ wbb_rankings <-
 # ppp
 # rebounds
 # turnovers
-mbb_rankings
+# mbb_rankings
 # wbb_rankings

@@ -79,20 +79,16 @@ read_csv("nyu_m_threes2.csv") %>%
   tab_header(title = md("NYU: 3-Point Outcomes"),
              subtitle = "UChicago @ NYU | February 10, 2023")
 
-read_csv("mitchell214.csv") %>%
+read_csv("naomijackson220.csv") %>%
   group_by(`Play Type`) %>%
   summarize(FGM = sum(Outcome == "1"),
             FGA = sum(Outcome == "0") + sum(Outcome == "1")) %>%
   ungroup() %>%
-  mutate(Frequency = 100 * round(FGA / sum(FGA), 3),
-         `Play Type` = case_when(`Play Type` == "Isolation Drive" ~ "Isolation/Drive",
-                                 TRUE ~ `Play Type`)) %>%
+  mutate(Frequency = 100 * round(FGA / sum(FGA), 3)) %>%
   arrange(desc(FGA)) %>%
   adorn_totals("row") %>%
   mutate(`FG%` = case_when(FGA == 0 ~ 0,
                            TRUE ~ 100 * round(FGM / FGA, 3)),
-         `Play Type` = case_when(`Play Type` == "Catch + Shoot 3" ~ "Catch + Shoot",
-                                 TRUE ~ `Play Type`),
          Frequency = case_when(`Play Type` == "Total" ~ 100,
                                TRUE ~ Frequency),
          Splits = paste(as.character(FGM), "/", as.character(FGA), sep="")) %>%
@@ -102,9 +98,9 @@ read_csv("mitchell214.csv") %>%
             locations = cells_title(groups = "title")) %>%
   tab_style(style = list(cell_text(weight = "bold")),
             locations = cells_body(columns = `Play Type`)) %>%
-  tab_header(title = md("#33 Sarah Mitchell"),
-             subtitle = "Case Western Reserve University | Last 4 UAA Games") %>%
-  tab_footnote(footnote = "2/6 on right-handed finishes over left shoulder",
+  tab_header(title = md("#12 Naomi Jackson"),
+             subtitle = "Washington University | Last 4 UAA Games") %>%
+  tab_footnote(footnote = "Likes to spot-up in transition",
                locations = cells_body(columns = `Play Type`, 
                                       rows = c(1)))
 
