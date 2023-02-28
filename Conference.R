@@ -18,6 +18,15 @@ wbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLo
 logos <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uaa_logos.csv")
 mbb_standings <- read_csv("uaa_mbb_standings14.csv") %>% mutate(Ranking = 9 - Ranking)
 wbb_standings <- read_csv("uaa_wbb_standings14.csv") %>% mutate(Ranking = 9 - Ranking)
+unw <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/unw_scout.csv") %>% 
+  select(PPP, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`) %>%
+  mutate(Team = "UNW-St. Paul")
+eauclaire <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uweauclaire_scout.csv") %>% 
+  select(PPP, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`) %>%
+  mutate(Team = "UW-Eau Claire")
+whitman <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/whitman_scout.csv") %>% 
+  select(PPP, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`) %>%
+  mutate(Team = "Whitman")
 
 if (women) {
   logs <- wbb_logs
