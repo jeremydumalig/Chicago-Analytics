@@ -7,8 +7,8 @@ rm(list = ls())
 setwd("/Users/jeremydumalig/Documents/GitHub/Chicago-Analytics")
 
 women <- TRUE
-date <- "February 19, 2023"
-n <- 13
+date <- "February 25, 2023"
+n <- 14
 uaa <- TRUE
 
 mbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/mbb_uaa_scout.csv")
@@ -16,8 +16,8 @@ wbb_logs <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-An
 mbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1BcIP7CIYDTNnedcRG3U3HAIwluaJtz8LCAKfArlEh98/edit#gid=136251738")
 wbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLohmxQK6PyrbNbOQbM6ux4LxXqWenM/edit#gid=1703250336")
 logos <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uaa_logos.csv")
-mbb_standings <- read_csv("uaa_mbb_standings13.csv") %>% mutate(Ranking = 9 - Ranking)
-wbb_standings <- read_csv("uaa_wbb_standings13.csv") %>% mutate(Ranking = 9 - Ranking)
+mbb_standings <- read_csv("uaa_mbb_standings14.csv") %>% mutate(Ranking = 9 - Ranking)
+wbb_standings <- read_csv("uaa_wbb_standings14.csv") %>% mutate(Ranking = 9 - Ranking)
 
 if (women) {
   logs <- wbb_logs
@@ -152,17 +152,18 @@ mbb_rankings <-
             show.legend=FALSE) +
   geom_image(data=filter(mbb_standings, Game == n),
              aes(image=URL),
-             size=0.1,
+             size=0.075,
              stat='identity') +
   scale_color_manual(values=c("#19374c", "#bd1c40", "#e7a612", 
-                                       "#c61c31", "#661b8f", 
+                                       "#661b8f", "#c61c31", 
                                        "#ffdc04", "#1b4264", "#870f00"),
                      breaks = arrange(filter(mbb_standings, Game == n), desc(Ranking))$Team) +
   scale_x_discrete(limits = levels(wbb_standings$Game)) +
   scale_y_discrete(limits = rev(levels(wbb_standings$Ranking))) +
   labs(title="2023 UAA Men's Basketball Standings",
        x=paste("Games Played (", n, " total)", sep=""),
-       y="Wins") +
+       y="Wins",
+       caption="NCAA Tournament Bids: Case Western, WashU, Emory, NYU, Rochester") +
   theme_linedraw() +
   theme(
     plot.margin = margin(1, 0.5, 0.5, 0.5, "cm"),
@@ -170,7 +171,7 @@ mbb_rankings <-
                                    color = "black"),
     legend.box.background = element_rect(size=0.75),
     axis.title.x = element_text(size=18,
-                                margin = margin(t=10)),
+                                margin = margin(t=10, b=5)),
     axis.title.y = element_text(size=18,
                                 margin = margin(r=10)),
     plot.title = element_text(size=24,
@@ -190,17 +191,18 @@ wbb_rankings <-
             show.legend=FALSE) +
   geom_image(data=filter(wbb_standings, Game == n),
              aes(image=URL),
-             size=0.1,
+             size=0.075,
              stat='identity') +
-  scale_color_manual(values=c("#661b8f", "#bd1c40", "#870f00", 
-                                       "#ffdc04", "#e7a612", 
+  scale_color_manual(values=c("#661b8f", "#870f00", "#bd1c40", 
+                                       "#e7a612", "#ffdc04", 
                                        "#19374c", "#c61c31", "#1b4264"),
                                        breaks = arrange(filter(wbb_standings, Game == n), desc(Ranking))$Team) +
   scale_x_discrete(limits = levels(wbb_standings$Game)) +
   scale_y_discrete(limits = rev(levels(wbb_standings$Ranking))) +
   labs(title="2023 UAA Women's Basketball Standings",
        x=paste("Games Played (", n, " total)", sep=""),
-       y="Ranking") +
+       y="Ranking",
+       caption="NCAA Tournament Bids: NYU, Chicago, WashU, Emory") +
   theme_linedraw() +
   theme(
     plot.margin = margin(1, 0.5, 0.5, 0.5, "cm"),
@@ -208,7 +210,7 @@ wbb_rankings <-
                                    color = "black"),
     legend.box.background = element_rect(size=0.75),
     axis.title.x = element_text(size=18,
-                                margin = margin(t=10)),
+                                margin = margin(t=10, b=5)),
     axis.title.y = element_text(size=18,
                                 margin = margin(r=10)),
     plot.title = element_text(size=24,
@@ -218,5 +220,5 @@ wbb_rankings <-
 # ppp
 # rebounds
 # turnovers
-# mbb_rankings
-# wbb_rankings
+mbb_rankings
+wbb_rankings
