@@ -79,31 +79,6 @@ read_csv("nyu_m_threes2.csv") %>%
   tab_header(title = md("NYU: 3-Point Outcomes"),
              subtitle = "UChicago @ NYU | February 10, 2023")
 
-read_csv("naomijackson220.csv") %>%
-  group_by(`Play Type`) %>%
-  summarize(FGM = sum(Outcome == "1"),
-            FGA = sum(Outcome == "0") + sum(Outcome == "1")) %>%
-  ungroup() %>%
-  mutate(Frequency = 100 * round(FGA / sum(FGA), 3)) %>%
-  arrange(desc(FGA)) %>%
-  adorn_totals("row") %>%
-  mutate(`FG%` = case_when(FGA == 0 ~ 0,
-                           TRUE ~ 100 * round(FGM / FGA, 3)),
-         Frequency = case_when(`Play Type` == "Total" ~ 100,
-                               TRUE ~ Frequency),
-         Splits = paste(as.character(FGM), "/", as.character(FGA), sep="")) %>%
-  select(`Play Type`, Frequency, Splits, `FG%`) %>%
-  gt() %>%
-  tab_style(style = list(cell_text(weight = "bold")),
-            locations = cells_title(groups = "title")) %>%
-  tab_style(style = list(cell_text(weight = "bold")),
-            locations = cells_body(columns = `Play Type`)) %>%
-  tab_header(title = md("#12 Naomi Jackson"),
-             subtitle = "Washington University | Last 4 UAA Games") %>%
-  tab_footnote(footnote = "Likes to spot-up in transition",
-               locations = cells_body(columns = `Play Type`, 
-                                      rows = c(1)))
-
 read_csv("mbb_tov214.csv") %>%
   group_by(Player) %>%
   summarize(`Perimeter` = sum(`Turnover Type` == "Perimeter/Strip"),
@@ -132,3 +107,31 @@ read_csv("mbb_tov214.csv") %>%
   tab_footnote(footnote = "Includes only post entry passes",
                locations = cells_column_labels(columns = `Post`))
 
+tab_footnote(footnote = "54.8% in the half-court",
+             locations = cells_body(columns = `Play Type`, 
+                                    rows = c(1)))
+
+read_csv("unw_all.csv") %>%
+  filter((`Play Type` != "Transition") & (`Play Type` != "Offensive Rebound")) %>%
+  group_by(`Play Type`) %>%
+  summarize(FGM = sum(Outcome == "1"),
+            FGA = sum(Outcome == "0") + sum(Outcome == "1")) %>%
+  ungroup() %>%
+  mutate(Frequency = 100 * round(FGA / sum(FGA), 3)) %>%
+  arrange(desc(FGA)) %>%
+  adorn_totals("row") %>%
+  mutate(`FG%` = case_when(FGA == 0 ~ 0,
+                           TRUE ~ 100 * round(FGM / FGA, 3)),
+         Frequency = case_when(`Play Type` == "Total" ~ 100,
+                               TRUE ~ Frequency),
+         Splits = paste(as.character(FGM), "/", as.character(FGA), sep="")) %>%
+  select(`Play Type`, Frequency, Splits, `FG%`) %>%
+  gt() %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_title(groups = "title")) %>%
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_body(columns = `Play Type`)) %>%
+  tab_header(title = md("Rotation Players: Shot Outcomes"),
+             subtitle = "University of Northwestern - St. Paul | Last 4 Games") %>%
+  tab_footnote(footnote = "Excluding offensive rebounds and transition plays",
+               locations = cells_column_labels(columns = `Play Type`))

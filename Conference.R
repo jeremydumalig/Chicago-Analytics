@@ -19,17 +19,14 @@ logos <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analy
 mbb_standings <- read_csv("uaa_mbb_standings14.csv") %>% mutate(Ranking = 9 - Ranking)
 wbb_standings <- read_csv("uaa_wbb_standings14.csv") %>% mutate(Ranking = 9 - Ranking)
 unw <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/unw_scout.csv") %>% 
-  select(PPP, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`) %>%
-  mutate(Team = "UNW-St. Paul",
-         URL = "https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/unw.png")
-eauclaire <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uweauclaire_scout.csv") %>% 
-  select(PPP, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`) %>%
-  mutate(Team = "UW-Eau Claire",
-         URL = "https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/eauclaire.png")
+  mutate(Team = "UNW-St. Paul") %>%
+  filter(Opponent == "Total")
+claire <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uweauclaire_scout.csv") %>% 
+  mutate(Team = "UW-Eau Claire") %>%
+  filter(Opponent == "Total")
 whitman <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/whitman_scout.csv") %>% 
-  select(PPP, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`) %>%
-  mutate(Team = "Whitman",
-         URL = "https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/whitman.png")
+  mutate(Team = "Whitman") %>%
+  filter(Opponent == "Total")
 
 if (women) {
   logs <- wbb_logs
@@ -66,6 +63,9 @@ games_conf <-
 conference <- 
   rbind(select(logs_conf, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`), 
         select(games_conf, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
+  rbind(select(unw, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
+  rbind(select(claire, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
+  rbind(select(whitman, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
   merge(logos, 
         by="Team")
 
