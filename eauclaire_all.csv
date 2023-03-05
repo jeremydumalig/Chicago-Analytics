@@ -1,0 +1,241 @@
+,Play Type,Outcome
+0,Off-Ball Cut,0
+1,Off-Ball Cut,0
+2,Off-Ball Cut,1
+3,Off-Ball Cut,1
+4,Drive Left,1
+5,Drive Left,1
+6,Drive Right,0
+7,Offensive Rebound,0
+8,Offensive Rebound,1
+9,Post-Up (Right),0
+10,Catch + Shoot (2PT),1
+11,Transition,0
+12,Transition,1
+13,Transition,1
+14,Pull-Up (3PT),0
+15,Pull-Up (3PT),0
+16,Pull-Up (3PT),0
+17,Pull-Up (3PT),0
+18,Pull-Up (3PT),0
+19,Pull-Up (3PT),0
+20,Pull-Up (3PT),0
+21,Pull-Up (3PT),0
+22,Pull-Up (3PT),0
+23,Pull-Up (3PT),0
+24,Pull-Up (3PT),0
+25,Pull-Up (3PT),0
+26,Pull-Up (3PT),0
+27,Pull-Up (3PT),0
+28,Pull-Up (3PT),1
+29,Pull-Up (3PT),1
+30,Pull-Up (3PT),1
+31,Pull-Up (2PT),1
+32,Pull-Up (2PT),1
+33,Pull-Up (2PT),1
+34,Pull-Up (2PT),1
+35,Pull-Up (2PT),0
+36,Pull-Up (2PT),0
+37,Pull-Up (2PT),0
+38,Pull-Up (2PT),0
+39,Pull-Up (2PT),0
+40,Pull-Up (2PT),0
+41,Pull-Up (2PT),0
+42,Pull-Up (2PT),0
+43,Pull-Up (2PT),0
+44,Pull-Up (2PT),0
+45,Pull-Up (2PT),0
+46,Catch + Shoot (3PT),0
+47,Catch + Shoot (3PT),0
+48,Catch + Shoot (3PT),0
+49,Catch + Shoot (3PT),0
+50,Catch + Shoot (3PT),0
+51,Catch + Shoot (3PT),0
+52,Catch + Shoot (3PT),0
+53,Catch + Shoot (3PT),0
+54,Catch + Shoot (3PT),0
+55,Catch + Shoot (3PT),0
+56,Catch + Shoot (3PT),1
+57,Catch + Shoot (3PT),1
+58,Catch + Shoot (3PT),1
+59,Catch + Shoot (3PT),1
+60,Catch + Shoot (3PT),1
+61,Catch + Shoot (3PT),1
+62,Catch + Shoot (3PT),0
+63,Catch + Shoot (3PT),0
+64,Catch + Shoot (3PT),0
+65,Catch + Shoot (3PT),0
+66,Catch + Shoot (3PT),0
+67,Catch + Shoot (3PT),0
+68,Catch + Shoot (3PT),0
+69,Catch + Shoot (3PT),0
+70,Catch + Shoot (3PT),0
+71,Catch + Shoot (3PT),0
+72,Catch + Shoot (3PT),0
+73,Drive Left,0
+74,Drive Left,1
+75,Drive Left,1
+76,Drive Right,0
+77,Drive Right,1
+78,Drive Right,1
+79,Drive Right,1
+80,Drive Right,1
+81,Pull-Up (2PT),0
+82,Pull-Up (2PT),0
+83,Pull-Up (2PT),0
+84,Pull-Up (2PT),1
+85,Post-Up (Left),0
+86,Post-Up (Left),0
+87,Off-Ball Cut,1
+88,Off-Ball Cut,1
+89,Off-Ball Cut,1
+90,Off-Ball Cut,0
+91,Post-Up (Right),0
+92,Post-Up (Right),0
+93,Post-Up (Right),0
+94,Post-Up (Right),0
+95,Post-Up (Right),1
+96,Post-Up (Right),1
+97,Offensive Rebound,1
+98,Offensive Rebound,1
+99,Offensive Rebound,0
+100,Catch + Shoot (2PT),0
+101,Catch + Shoot (2PT),1
+102,Transition,0
+103,Transition,1
+104,Transition,1
+105,Transition,1
+106,Transition,1
+107,Catch + Shoot (3PT),0
+108,Catch + Shoot (3PT),0
+109,Catch + Shoot (3PT),0
+110,Catch + Shoot (3PT),0
+111,Catch + Shoot (3PT),0
+112,Catch + Shoot (3PT),0
+113,Catch + Shoot (3PT),0
+114,Catch + Shoot (3PT),0
+115,Catch + Shoot (3PT),0
+116,Catch + Shoot (3PT),0
+117,Catch + Shoot (3PT),0
+118,Catch + Shoot (3PT),0
+119,Catch + Shoot (3PT),1
+120,Catch + Shoot (3PT),1
+121,Catch + Shoot (3PT),1
+122,Catch + Shoot (3PT),1
+123,Catch + Shoot (3PT),1
+124,Catch + Shoot (3PT),1
+125,Drive Left,0
+126,Drive Left,1
+127,Drive Left,1
+128,Drive Right,0
+129,Drive Right,0
+130,Drive Right,0
+131,Drive Right,0
+132,Transition,1
+133,Transition,1
+134,Transition,0
+135,Transition,0
+136,Offensive Rebound,1
+137,Offensive Rebound,0
+138,Offensive Rebound,0
+139,Post-Up (Right),1
+140,Post-Up (Left),0
+141,Post-Up (Left),0
+142,Pull-Up (3PT),0
+143,Drive Left,0
+144,Drive Left,0
+145,Drive Left,0
+146,Drive Left,0
+147,Drive Left,0
+148,Drive Left,0
+149,Drive Left,0
+150,Drive Left,0
+151,Drive Left,1
+152,Drive Left,1
+153,Drive Left,1
+154,Drive Left,1
+155,Off-Ball Cut,0
+156,Off-Ball Cut,0
+157,Off-Ball Cut,1
+158,Off-Ball Cut,1
+159,Off-Ball Cut,1
+160,Catch + Shoot (3PT),0
+161,Catch + Shoot (3PT),0
+162,Catch + Shoot (3PT),0
+163,Catch + Shoot (3PT),0
+164,Catch + Shoot (3PT),0
+165,Catch + Shoot (3PT),0
+166,Catch + Shoot (3PT),0
+167,Catch + Shoot (3PT),1
+168,Catch + Shoot (3PT),1
+169,Catch + Shoot (3PT),1
+170,Drive Right,0
+171,Drive Right,0
+172,Drive Right,0
+173,Drive Right,0
+174,Pull-Up (2PT),0
+175,Pull-Up (2PT),0
+176,Pull-Up (2PT),1
+177,Pull-Up (2PT),1
+178,Post-Up (Right),0
+179,Post-Up (Right),0
+180,Post-Up (Right),0
+181,Transition,0
+182,Offensive Rebound,0
+183,Offensive Rebound,0
+184,Offensive Rebound,0
+185,Post-Up (Left),0
+186,Post-Up (Left),0
+187,Post-Up (Left),0
+188,Post-Up (Left),0
+189,Post-Up (Left),0
+190,Post-Up (Left),0
+191,Post-Up (Left),0
+192,Post-Up (Left),0
+193,Post-Up (Left),0
+194,Post-Up (Left),1
+195,Post-Up (Left),1
+196,Post-Up (Left),1
+197,Post-Up (Left),1
+198,Post-Up (Left),1
+199,Post-Up (Left),1
+200,Post-Up (Left),1
+201,Post-Up (Left),1
+202,Post-Up (Left),1
+203,Post-Up (Left),1
+204,Drive + Dump,1
+205,Drive + Dump,1
+206,Catch + Shoot (3PT),0
+207,Catch + Shoot (3PT),0
+208,Catch + Shoot (3PT),0
+209,Catch + Shoot (3PT),0
+210,Catch + Shoot (2PT),0
+211,Drive Left,0
+212,Drive Left,1
+213,Post-Up (Right),1
+214,Post-Up (Right),1
+215,Transition,1
+216,Transition,1
+217,Transition,0
+218,Drive Left,0
+219,Drive Left,1
+220,Drive Left,1
+221,Drive Left,1
+222,Drive Left,1
+223,Drive Right,0
+224,Drive Right,1
+225,Catch + Shoot (3PT),0
+226,Catch + Shoot (3PT),0
+227,Catch + Shoot (3PT),1
+228,Pull-Up (2PT),1
+229,Catch + Shoot (2PT),0
+230,Post-Up (Left),0
+231,Post-Up (Left),0
+232,Post-Up (Right),0
+233,Post-Up (Right),0
+234,Post-Up (Right),1
+235,Post-Up (Right),1
+236,Drive Right,0
+237,PnR Roll Man,1
+238,Pull-Up (2PT),0
+239,Drive + Dump,1

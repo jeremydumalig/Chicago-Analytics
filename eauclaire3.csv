@@ -1,0 +1,15 @@
+,Play Type,Outcome
+0,Transition,1
+1,Transition,0
+2,Drive Left,0
+3,Drive Left,1
+4,Drive Left,1
+5,Drive Left,1
+6,Drive Left,1
+7,Drive Right,0
+8,Drive Right,1
+9,Catch + Shoot (3PT),0
+10,Catch + Shoot (3PT),0
+11,Catch + Shoot (3PT),1
+12,Pull-Up (2PT),1
+13,Catch + Shoot (2PT),0

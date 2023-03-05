@@ -107,31 +107,31 @@ read_csv("mbb_tov214.csv") %>%
   tab_footnote(footnote = "Includes only post entry passes",
                locations = cells_column_labels(columns = `Post`))
 
-tab_footnote(footnote = "54.8% in the half-court",
-             locations = cells_body(columns = `Play Type`, 
-                                    rows = c(1)))
+player <- function(school, number) {
+  read_csv(paste(school, number, ".csv", sep="")) %>%
+    filter(!(`Play Type` %in% c("Offensive Rebound", "Transition"))) %>%
+    group_by(`Play Type`) %>%
+    summarize(FGM = sum(Outcome == "1"),
+              FGA = sum(Outcome == "0") + sum(Outcome == "1")) %>%
+    ungroup() %>%
+    mutate(Frequency = 100 * round(FGA / sum(FGA), 3)) %>%
+    arrange(desc(FGA)) %>%
+    adorn_totals("row") %>%
+    mutate(`FG%` = case_when(FGA == 0 ~ 0,
+                             TRUE ~ 100 * round(FGM / FGA, 3)),
+           Frequency = case_when(`Play Type` == "Total" ~ 100,
+                                 TRUE ~ Frequency),
+           Splits = paste(as.character(FGM), "/", as.character(FGA), sep="")) %>%
+    select(`Play Type`, Frequency, Splits, `FG%`) %>%
+    gt() %>%
+    tab_style(style = list(cell_text(weight = "bold")),
+              locations = cells_title(groups = "title")) %>%
+    tab_style(style = list(cell_text(weight = "bold")),
+              locations = cells_body(columns = `Play Type`))
+}
 
-read_csv("unw_all.csv") %>%
-  filter((`Play Type` != "Transition") & (`Play Type` != "Offensive Rebound")) %>%
-  group_by(`Play Type`) %>%
-  summarize(FGM = sum(Outcome == "1"),
-            FGA = sum(Outcome == "0") + sum(Outcome == "1")) %>%
-  ungroup() %>%
-  mutate(Frequency = 100 * round(FGA / sum(FGA), 3)) %>%
-  arrange(desc(FGA)) %>%
-  adorn_totals("row") %>%
-  mutate(`FG%` = case_when(FGA == 0 ~ 0,
-                           TRUE ~ 100 * round(FGM / FGA, 3)),
-         Frequency = case_when(`Play Type` == "Total" ~ 100,
-                               TRUE ~ Frequency),
-         Splits = paste(as.character(FGM), "/", as.character(FGA), sep="")) %>%
-  select(`Play Type`, Frequency, Splits, `FG%`) %>%
-  gt() %>%
-  tab_style(style = list(cell_text(weight = "bold")),
-            locations = cells_title(groups = "title")) %>%
-  tab_style(style = list(cell_text(weight = "bold")),
-            locations = cells_body(columns = `Play Type`)) %>%
+player("whitman", "_all") %>%
   tab_header(title = md("Rotation Players: Shot Outcomes"),
-             subtitle = "University of Northwestern - St. Paul | Last 4 Games") %>%
+             subtitle = "Whitman College | Last 4 Games") %>%
   tab_footnote(footnote = "Excluding offensive rebounds and transition plays",
                locations = cells_column_labels(columns = `Play Type`))
