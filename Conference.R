@@ -18,14 +18,14 @@ wbb_games <- gsheet2tbl("https://docs.google.com/spreadsheets/d/12JWqAMfVrSZobLo
 logos <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uaa_logos.csv")
 mbb_standings <- read_csv("uaa_mbb_standings14.csv") %>% mutate(Ranking = 9 - Ranking)
 wbb_standings <- read_csv("uaa_wbb_standings14.csv") %>% mutate(Ranking = 9 - Ranking)
-unw <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/unw_scout.csv") %>% 
-  mutate(Team = "UNW-St. Paul") %>%
+rhode <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/rhode_scout.csv") %>% 
+  mutate(Team = "Rhode Island") %>%
   filter(Opponent == "Total")
-claire <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/uweauclaire_scout.csv") %>% 
-  mutate(Team = "UW-Eau Claire") %>%
+babson <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/babson_scout.csv") %>% 
+  mutate(Team = "Babson") %>%
   filter(Opponent == "Total")
-whitman <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/whitman_scout.csv") %>% 
-  mutate(Team = "Whitman") %>%
+marietta <- read_csv("https://raw.githubusercontent.com/jeremydumalig/Chicago-Analytics/main/marietta_scout.csv") %>% 
+  mutate(Team = "Marietta") %>%
   filter(Opponent == "Total")
 
 if (women) {
@@ -63,9 +63,9 @@ games_conf <-
 conference <- 
   rbind(select(logs_conf, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`), 
         select(games_conf, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
-  rbind(select(unw, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
-  rbind(select(claire, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
-  rbind(select(whitman, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
+  rbind(select(rhode, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
+  rbind(select(babson, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
+  rbind(select(marietta, Team, `PPP`, `OPP PPP`, `ORB%`, `DRB%`, `TO%`, `OPP TO%`)) %>%
   merge(logos, 
         by="Team")
 
@@ -229,8 +229,8 @@ wbb_rankings <-
                               face="bold",
                               margin = margin(b=10)))
 
-# ppp
-# rebounds
-# turnovers
-mbb_rankings
-wbb_rankings
+ppp
+rebounds
+turnovers
+# mbb_rankings
+# wbb_rankings
