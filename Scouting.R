@@ -109,7 +109,7 @@ read_csv("mbb_tov214.csv") %>%
 
 player <- function(school, number) {
   read_csv(paste(school, number, ".csv", sep="")) %>%
-    filter(!(`Play Type` %in% c("Offensive Rebound", "Transition"))) %>%
+    # filter(!(`Play Type` %in% c("Offensive Rebound", "Transition"))) %>%
     group_by(`Play Type`) %>%
     summarize(FGM = sum(Outcome == "1"),
               FGA = sum(Outcome == "0") + sum(Outcome == "1")) %>%
@@ -130,8 +130,11 @@ player <- function(school, number) {
               locations = cells_body(columns = `Play Type`))
 }
 
-player("whitman", "_all") %>%
-  tab_header(title = md("Rotation Players: Shot Outcomes"),
-             subtitle = "Whitman College | Last 4 Games") %>%
-  tab_footnote(footnote = "Excluding offensive rebounds and transition plays",
-               locations = cells_column_labels(columns = `Play Type`))
+player("marietta", "34") %>%
+  tab_header(title = md("#34 Hannah Kroft: Shot Outcomes"),
+             subtitle = "Babson College | Last 4 Games")
+
+%>%
+  tab_footnote(footnote = "Likes to attack in semi-transition",
+               locations = cells_body(columns = `Play Type`,
+                                      rows = c(1, 2)))
